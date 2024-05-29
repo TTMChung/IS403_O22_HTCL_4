@@ -257,10 +257,37 @@ r_t &= \sigma\left( W^{(r)} x_t + U^{(r)} h_{t-1} \right)
 \(h_t\) and \(h_{t-1}\) represent the output of the current and previous states, respectively, while \(r_t\) and \(z_t\) indicate the reset and update gates, respectively. \(\sigma\) is the logistic sigmoid function while \(W_r\) and \(U_r\) are the weight matrices.
 
 
-\subsection{LSTM} 
+\subsection{Long Short Term Memory (LSTM)}
+LSTM (Long Short-Term Memory) networks are a specialized type of recurrent neural network (RNN) architecture designed to address the challenge of learning and remembering over long sequences of data. They excel at capturing long-term dependencies in sequential data, making them well-suited for tasks such as time series forecasting.
+
+\textbf{Memory Cells:} LSTM networks utilize memory cells to store and update information over time, allowing them to retain relevant information over long sequences.
+  
+\textbf{Gating Mechanisms:} They incorporate gates to regulate the flow of information, including input gates, forget gates, and output gates, enabling precise control over what information is stored or discarded.
+
+\textbf{Update Cell State:} LSTM networks update their cell state by combining the previous cell state with new information, controlled by the input and forget gates. The equation for updating the cell state is:
+\begin{equation*}
+  C_t = f_t \cdot C_{t-1} + i_t \cdot \tilde{C}_t
+\end{equation*}
+Where:
+        \begin{itemize}
+            \item \( C_t \) is the updated cell state.
+            \item \( f_t \) is the forget gate activation.
+            \item \( C_{t-1} \) is the previous cell state.
+            \item \( \tilde{C}_t \) is the candidate cell state.
+        \end{itemize}
+
+\textbf{Memory Retention:} LSTM networks are adept at retaining and selectively updating information over long sequences, making them effective for tasks requiring memory of past events.
+  
+\textbf{Effective Sequence Modeling:} Their ability to capture long-term dependencies makes them highly effective for modeling sequential data, enabling accurate predictions in time series forecasting.
+
+\textbf{Time Series Forecasting:} Predicting future values in time series data, such as financial market trends, weather patterns, and energy consumption.
+
+
+\subsection{XGBoost} 
+
 XGBoost is an optimized distributed gradient boosting library designed for efficient and scalable training of machine learning models. It is an ensemble learning method that combines the predictions of multiple weak models to produce a stronger prediction. XGBoost stands for “Extreme Gradient Boosting” and it has become one of the most popular and widely used machine learning algorithms due to its ability to handle large datasets and its ability to achieve state-of-the-art performance in many machine learning tasks such as classification and regression.\\
 
- \item \textbf{Loss Function}:
+\textbf{Loss Function}:
         \[ \text{Loss} = \sum_{i=1}^{n} L(y_i, \hat{y}_i) + \sum_{k=1}^{K} \Omega(f_k) \]
         Where:
         \begin{itemize}
@@ -268,10 +295,10 @@ XGBoost is an optimized distributed gradient boosting library designed for effic
             \item $\Omega(f_k)$ is the penalty function measuring the complexity of the model, helping to prevent overfitting.
         \end{itemize}
         
-    \item \textbf{Decision Trees}:
+\textbf{Decision Trees}:
         Decision trees used in XGBoost are weak learners trained to minimize the loss function by optimizing values at nodes and splitting thresholds.
         
-    \item \textbf{Regularization Terms}:
+\textbf{Regularization Terms}:
         $\Omega(f_k)$ typically includes two components: regularization terms to control the depth of trees ($T$) and reduce the number of leaf nodes ($J$):
         \[ \Omega(f_k) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^{J} w_j^2 \]
         Where:
@@ -281,7 +308,7 @@ XGBoost is an optimized distributed gradient boosting library designed for effic
             \item $w_j$ is the weight value of the $j$-th node.
         \end{itemize}
         
-    \item \textbf{Optimization Objective}:
+\textbf{Optimization Objective}:
         The optimization objective of XGBoost is to minimize the loss function by finding the best trees $f_k$:
         \[ \text{Obj} = \sum_{i=1}^{n} L(y_i, \hat{y}_i) + \sum_{k=1}^{K} \Omega(f_k) \]
 
@@ -343,7 +370,7 @@ Where: \\
          \hline
          \multirow{2}{*}{Stacking Model} &\ 7:3 &\ 1928.668 &\ 1750.873 &\ 6.751 \\ &\ 8:2 &\textbf{493.815} &\textbf{372.973} &\textbf{1.407}\\&\ 9:1 &\ 521.951 &\ 440.77 &\ 1.636 \\
          \hline
-         \multirow{2}{*}{LSTM} &\textbf{7:3} &\textbf{?}&\textbf{?}&\textbf{?} \\ &\ 8:2 &\ ?&\ ? &\ ? \\&\ 9:1 &\ ? &\ ? &\ ? \\
+         \multirow{2}{*}{LSTM} &\ 7:3 &\ 138.613 &\0.405 &\ 108.009 \\ &\ 8:2 &\ 155.868&\ 0.447 &\ 120.601 \\&\textbf{9:1}&\textbf{136.237} &\textbf{0.387} &\textbf{106.114} \\
          \hline
          \multirow{2}{*}{BatchTST} &\textbf{7:3} &\textbf{?}&\textbf{?}&\textbf{?} \\ &\ 8:2 &\ ?&\ ? &\ ? \\&\ 9:1 &\ ? &\ ? &\ ? \\
          \hline
@@ -401,6 +428,15 @@ Where: \\
   \centering
   \begin{minipage}{0.8\linewidth}
     \centering
+    \includegraphics[width=\linewidth]{bibliography/Figure/LSTM/EUR_91_LSTM.png}
+    \caption{LSTM model's result with 9:1 splitting proportion}
+    \label{fig8}
+  \end{minipage}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.8\linewidth}
+    \centering
     \includegraphics[width=\linewidth]{bibliography/DLM_VCB82.png}
     \caption{DLM model's result with 8:2 splitting proportion}
     \label{fig13}
@@ -443,7 +479,7 @@ Where: \\
          \hline
          \multirow{2}{*}{Stacking Model} &\ 7:3 &\ 1620.452&\ 1429.037&\ 4.713 \\ &\ 8:2 &\ 817.089&\ 680.45 &\ 2.234 \\&\textbf{9:1} &\textbf{733.845} &\textbf{594.598} &\textbf{1.893} \\
          \hline
-         \multirow{2}{*}{LSTM} &\textbf{7:3} &\textbf{?}&\textbf{?}&\textbf{?} \\ &\ 8:2 &\ ?&\ ? &\ ? \\&\ 9:1 &\ ? &\ ? &\ ? \\
+         \multirow{2}{*}{LSTM} &\ 7:3 &\ 187.121 &\ 0.477 &\ 145.069 \\ &\ 8:2 &\ 183.637 &\ 0.452 &\ 140.525 \\&\textbf{9:1} &\textbf{179.470} &\textbf{0.44} &\textbf{139.233} \\
          \hline
          \multirow{2}{*}{BatchTST} &\textbf{7:3} &\textbf{?}&\textbf{?}&\textbf{?} \\ &\ 8:2 &\ ?&\ ? &\ ? \\&\ 9:1 &\ ? &\ ? &\ ? \\
          \hline
@@ -501,6 +537,15 @@ Where: \\
   \centering
   \begin{minipage}{0.8\linewidth}
     \centering
+    \includegraphics[width=\linewidth]{bibliography/Figure/LSTM/GBP_91_LSTM.png}
+    \caption{LSTM model's result with 9:1 splitting proportion}
+    \label{fig8}
+  \end{minipage}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.8\linewidth}
+    \centering
     \includegraphics[width=\linewidth]{bibliography/DLM_MBB91.png}
     \caption{DLM model's result with 9:1 splitting proportion}
     \label{fig20}
@@ -543,7 +588,7 @@ Where: \\
          \hline
          \multirow{2}{*}{Stacking Model} &\ 7:3 &\ 1928.667 &\ 17.7 &\ 10.181 \\ &\textbf{8:2} &\textbf{6.196} &\textbf{4.921} &\textbf{2.858} \\&\ 9:1 &\ 11.974 &\ 10.704 &\ 6.28 \\
          \hline
-         \multirow{2}{*}{LSTM} &\textbf{7:3} &\textbf{?}&\textbf{?}&\textbf{?} \\ &\ 8:2 &\ ?&\ ? &\ ? \\&\ 9:1 &\ ? &\ ? &\ ? \\
+         \multirow{2}{*}{LSTM} &\ 7:3 &\ 1.795 &\ 0.791 &\ 1.39 \\ &\ 8:2 &\ 1.468&\ 0.658 &\ 1.126 \\&\textbf{9:1} &\textbf{1.31} &\textbf{0.536} &\textbf{0.931} \\
          \hline
          \multirow{2}{*}{BatchTST} &\textbf{7:3} &\textbf{?}&\textbf{?}&\textbf{?} \\ &\ 8:2 &\ ?&\ ? &\ ? \\&\ 9:1 &\ ? &\ ? &\ ? \\
          \hline
@@ -595,6 +640,15 @@ Where: \\
     \includegraphics[width=\linewidth]{RNN_JPY.png}
     \caption{RNN model's result with 9:1 splitting proportion}
     \label{fig26}
+  \end{minipage}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.8\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{bibliography/Figure/LSTM/JPY_91_LSTM.png}
+    \caption{LSTM model's result with 9:1 splitting proportion}
+    \label{fig8}
   \end{minipage}
 \end{figure}
 \begin{figure}[H]
