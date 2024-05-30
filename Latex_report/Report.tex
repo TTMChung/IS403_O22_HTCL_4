@@ -215,8 +215,9 @@ The MA model with order q analyzes the past q forecast errors to anticipate the 
             \indent\textbullet\ \(\epsilon(t-1), \epsilon(t-2), \ldots, \epsilon(t-q)\) are forecast error.\\
             \indent\textbullet\ \(\beta_0, \beta_1, \ldots, \beta_q\) mean values of Y(t) and moving average coefficients.\\
 \subsection{Exponential Smoothing (ETS)}
-Exponential smoothing is one of the most popular models used for demand forecasting in practice. It includes Error, Trend and Seasonal components, thus being called ‘ETS’ [6] 
-There are three main methods to estimate exponential smoothing. They are: \\
+Exponential smoothing is one of the most popular models used for demand forecasting in practice. It includes Error, Trend and Seasonal components, thus being called ‘ETS’ [6].
+The trend component (T) represents the tendency of increasing or decreasing of data over the time. The seasonal (S) shows the periodic fluctuations at fixed intervals within the data. The fluctuations are affected by specific times of the year like holidays, seasonal changes or events. The error (E) is also known as residual. It represents the unpredictable or fluctuations in the data that cannot be explained by the trend or seasonal components.
+There are three main methods to estimate exponential smoothing, which are: \\
     \indent\textbullet\ Simple exponential smoothing: used when the data has no trend and no seasonal pattern. \\
     \indent\textbullet\ Double exponential smoothing: used for forecasting the time series when the data has a linear trend and no seasonal pattern. \\
     \indent\textbullet\ Triple exponential smoothing: used for forecasting the time series when the data has both linear trend and seasonal pattern. This method is also called Holt-Winters exponential smoothing [7]
@@ -335,11 +336,11 @@ Where: \\
          \hline
          \multirow{2}{*}{ARIMA} &\ 7:3 &\ 2289.514 &\ 7.992 &\ 2133.657 \\ &\ 8:2 &\ 854.828 &\ 2.691 &\ 728.866 \\&\ \textbf{9:1} &\ \textbf{372.325} &\ \textbf{1.197} &\ \textbf{325.546} \\
          \hline
-         \multirow{2}{*}{ETS} &\textbf{7:3} &\textbf{?}&\textbf{?}&\textbf{?} \\ &\ 7:3 &\ ?&\ ? &\ ? \\&\ 9:1 &\ ? &\ ? &\ ? \\
+        \multirow{2}{*}{ETS} & 7:3 & 1019.858 & 3.532 & 937.412 \\ & \textbf{8:2} & \textbf{367.357} & \textbf{1.103} & \textbf{297.673} \\& 9:1 & 486.213 & 1.603 & 432.97 \\
          \hline
          \multirow{2}{*}{RNN} & 7:3 & 1.5398 & 0.603 & 1.209 \\ & 8:2 & 1.465 & 0.541 & 1.105 \\& \textbf{9:1} & \textbf{1.45} & \textbf{0.524} & \textbf{1.095} \\
          \hline
-         \multirow{2}{*}{GRU} &\textbf{7:3} &\textbf{?}&\textbf{?}&\textbf{?} \\ &\ 8:2 &\ ?&\ ? &\ ? \\&\ 9:1 &\ ? &\ ? &\ ? \\
+         \multirow{2}{*}{GRU} &\textbf{7:3} &\textbf{131.149}&\textbf{0.369}&\textbf{98.491} \\ &\ 8:2 &\ 135.706&\ 0.388 &\ 104.839 \\&\ 9:1 &\ 137.436 &\ 0.383 &\ 104.969 \\
          \hline
          \multirow{2}{*}{Stacking Model} &\ 7:3 &\ 1928.668 &\ 1750.873 &\ 6.751 \\ &\ 8:2 &\textbf{493.815} &\textbf{372.973} &\textbf{1.407}\\&\ 9:1 &\ 521.951 &\ 440.77 &\ 1.636 \\
          \hline
@@ -435,12 +436,11 @@ Where: \\
          \hline
          \multirow{2}{*}{ARIMA} &\ 7:3 &\ 2391.128&\ 7.061 &\ 2160.296 \\ &\ 8:2 &\ 1865.457 &\ 5.445 &\ 1689.997 \\&\ \textbf{9:1} &\ \textbf{546.792} &\ \textbf{1.575} &\ \textbf{490.115} \\
          \hline
-         \multirow{2}{*}{ETS} &\textbf{7:3} &\textbf{?}&\textbf{?}&\textbf{?} \\ &\ 8:2 &\ ?&\ ? &\ ? \\&\ 9:1 &\ ? &\ ? &\ ? \\
+         \multirow{2}{*}{ETS} &\ 7:3&\ 1403.073&\ 3.987&\ 1213.524 \\ &\ \textbf{8:2} &\ \textbf{741.095}&\ \textbf{1.927}&\ \textbf{597.069}\\&\ 9:1 &\ 1173.279 &\ 3.614 &\ 1126.355 \\
          \hline
          \multirow{2}{*}{RNN} & 7:3 & 1.465 & 0.544 & 1.107  \\ & 8:2 & 1.462 & 0.528 & 1.106 \\&\textbf{ 9:1} & \textbf{1.354} &\textbf{ 0.476} &\textbf{ 1.023} \\
          \hline
-         \multirow{2}{*}{GRU} &\textbf{7:3} &\textbf{?}&\textbf{?}&\textbf{?} \\ &\ 8:2 &\ ?&\ ? &\ ? \\&\ 9:1 &\ ? &\ ? &\ ? \\
-         \hline
+         \multirow{2}{*}{GRU} & 7:3 & 174.233 & 0.437 & 132.637 \\ & 8:2 & 177.784 & 0.435 & 135.318 \\ &\textbf{9:1} &\textbf{158.711}&\textbf{0.363}&\textbf{115.036} \\      \hline
          \multirow{2}{*}{Stacking Model} &\ 7:3 &\ 1620.452&\ 1429.037&\ 4.713 \\ &\ 8:2 &\ 817.089&\ 680.45 &\ 2.234 \\&\textbf{9:1} &\textbf{733.845} &\textbf{594.598} &\textbf{1.893} \\
          \hline
          \multirow{2}{*}{LSTM} &\textbf{7:3} &\textbf{?}&\textbf{?}&\textbf{?} \\ &\ 8:2 &\ ?&\ ? &\ ? \\&\ 9:1 &\ ? &\ ? &\ ? \\
@@ -535,11 +535,11 @@ Where: \\
          \hline
          \multirow{2}{*}{ARIMA} &\ 7:3 &\ 8.645 &\ 4.284 &\ 7.6 \\ &\ 8:2 &\ 8.343 &\ 4.368 &\ 7.469  \\ &\textbf{9:1} &\textbf{2.749} &\textbf{1.264} &\textbf{2.173} \\
          \hline
-         \multirow{2}{*}{ETS} &\textbf{7:3} &\textbf{?}&\textbf{?}&\textbf{?} \\ &\ 8:2 &\ ?&\ ? &\ ? \\&\ 9:1 &\ ? &\ ? &\ ? \\
+         \multirow{2}{*}{ETS} &\ 7:3 &\ 9.371 &\ 4.698 &\ 8.327 \\ &\ 8:2 &\ 4.414 &\ 2.253 &\ 3.876 \\&\textbf{9:1} &\textbf{3.989} &\textbf{1.688} &\textbf{2.92} \\
          \hline
          \multirow{2}{*}{RNN} &  7:3  & 1.592 & 0.663 &\ 1.1698 \\ & 8:2  & 1.635  & 0.755  & 1.29 \\&\textbf{9:1} &\textbf{1.516} &\textbf{0.672} &\textbf{1.161} \\
          \hline
-         \multirow{2}{*}{GRU} &\textbf{7:3} &\textbf{?}&\textbf{?}&\textbf{?} \\ &\ 8:2 &\ ?&\ ? &\ ? \\&\ 9:1 &\ ? &\ ? &\ ? \\
+         \multirow{2}{*}{GRU} &7:3&\ 1.403&\ 0.549&\ 0.971\\ &\ 8:2 &\ 1.149&\ 0.473 &\ 0.811 \\&\textbf{9:1} &\textbf{1.212} &\textbf{0.461} &\textbf{0.8} \\
          \hline
          \multirow{2}{*}{Stacking Model} &\ 7:3 &\ 1928.667 &\ 17.7 &\ 10.181 \\ &\textbf{8:2} &\textbf{6.196} &\textbf{4.921} &\textbf{2.858} \\&\ 9:1 &\ 11.974 &\ 10.704 &\ 6.28 \\
          \hline
@@ -625,14 +625,14 @@ Where: \\
   \end{minipage}
 \end{figure}
 \section{Conclusion}
-Kết luận mẫu ---- Xóa dòng này
 \subsection{Summary}
-In the achievement of forecasting stock prices, the exploration of diverse methodologies, ranging from traditional statistical models to advanced machine learning algorithms, has been aimed. Among the performed models, Linear Regression (LR), Auto Regressive Integrated Moving Average (ARIMA), Support Vector Regression (SVR), Seasonal Auto Regression Integrated Moving Average (SARIMA), Dynamic Linear Model (DLM), Bagging – GRU, and Simple Exponential Smoothing (SES), it becomes evident that Support Vector Regression (SVR), Gated Recurrent Unit (GRU), and Bagging GRU emerge as the most promising and effective models for predicting stock prices.\\
-The intricacies of stock price forecasting, rooted in the complexity and unpredictability of financial markets, demand models that can capture nuanced patterns and relationships within the data. Support Vector Regression (SVR) showcases its efficacy in handling intricate relationships, providing robust predictions. Gated Recurrent Unit (GRU) models, with their ability to capture sequential dependencies, exhibit notable performance in forecasting stock prices. The introduction of ensemble learning through Bagging GRU further refines the predictive capabilities, offering a collective insight that surpasses individual models.\\
-As evidenced by the evaluation metrics, including RMSE, MAPE, and MSLE, the SVR, GRU, and Bagging GRU models consistently demonstrate superior performance across various aspects of forecasting accuracy. Their adaptability to handle the inherent uncertainties of stock markets positions them as formidable tools for investors and analysts seeking reliable predictions.
-\subsection{Future Considerations}
-In our future research, it is crucial to prioritize further optimization of the previously mentioned models. This optimization effort should specifically focus on:\\
-\indent\textbullet\ Enhancing the accuracy of the model. While the above algorithms have demonstrated promising results in predicting stock prices, there is a need to further improve the model's accuracy to ensure more precise forecasting outcomes.\\
+In the study, we developed and evaluated several models for forecasting currency price, leveraging different statistical, deep and machine learning techniques. The eight models used are Linear Regression, ARIMA, Exponential Smoothing (ETS), Long Short Term Memory (LSTM), Recurrent Neural Network (RNN), Gated
+Recurrent Unit (GRU), Stacking Model and Multi-layer Perceptron (MLP). The assessment and comparison of forecasting methods highlighted that each technique possessed its own advantages and drawbacks. We use metrics like RMSE, MAE and MAPE to evaluate model accuracy. By comparing these evaluation metrics, we determined that <> are well-suited for forecasting currency price. These model performed more accurate future prices than the others. 
+\subsection{Future Plans}
+The above algorithms have demonstrated promising results in forecasting currency prices. However, it is necessary to enhance the model to achieve greater accuracy and reliability. To accomplish this, several key strategies can be implemented \\
+\indent\textbullet\ Enhancing the accuracy of the model. It includes improving data quality by cleaning and preprocessing data before being used in the model.\\
+
+MOI LAM TOI DAY THOII :D \\
 \indent\textbullet\ Exploring alternative machine learning algorithms or ensemble techniques. Ensemble techniques, such as combining multiple models or using various ensemble learning methods, can also improve the robustness and accuracy of the forecasts.\\
 \indent\textbullet\ Researching new forecasting models. The field of forecasting continuously evolves, with new algorithms and models being researched and developed. It is crucial to stay updated with these approaches and explore new forecasting models that offer improved accuracy and performance. \\
 By continuously exploring and incorporating new features, data sources, and modeling techniques, we can strive for ongoing optimization of the forecasting models and enhance their ability to predict stock prices with greater precision and reliability.
