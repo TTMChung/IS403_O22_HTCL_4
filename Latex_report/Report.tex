@@ -193,13 +193,13 @@ Where:\\
 	\indent\textbullet\ \(\varepsilon\) is the error term.
 
  \subsection{AutoRegressive Integrated Moving Average (ARIMA)}
- ARIMA (AutoRegressive Integrated Moving Average) model is a form of regression analysis that gauges the strength of one dependent variable relative to other changing variables. The ARIMA model is used to make predictions about future values of the time series based on its past values. The ARIMA model consists of three parts including Autoregressive (AR), Integrated (I), and Moving Average (MA).\\ 
+ ARIMA model is a form of regression analysis that gauges the strength of one dependent variable relative to other changing variables. The ARIMA model is used to make predictions about future values of the time series based on its past values. The ARIMA model consists of three parts including Autoregressive (AR), Integrated (I), and Moving Average (MA).\\ 
  
  The AR component with order p utilizes the preceding p values of the time series for current value prediction. The AR(p) model has the form:
- \[Y(t)=\alpha_0+\alpha_1Y(t-1)+\alpha_2Y(t-2)+\cdots+\alpha_pY(t-p)+\epsilon(t)\]
+ \[Y(t)=\alpha_0+\alpha_1Y(t-1)+\cdots+\alpha_pY(t-p)+\epsilon(t)\]
          Where:\\
 	     \indent\textbullet\ Y(t) is current observed value.\\
-          \indent\textbullet\ \(Y(t-1), Y(t-2), \ldots, Y(t-p)\) are past observed values.\\
+          \indent\textbullet\ \(Y(t-1), \ldots, Y(t-p)\) are past observed values.\\
           \indent\textbullet\ \(\alpha_0, \alpha_1, \ldots, \alpha_p\) are regression analysis parameters.\\
           \indent\textbullet\ \(\epsilon(t)\) is random forecasting error of the current period. The expected mean value is 0.\\
             
@@ -208,18 +208,18 @@ Where:\\
     \indent\textbullet\ Second Difference I(2): dY(t) = Y(t) - 2Y(t-2) + Y(t-3)\\
  
 The MA model with order q analyzes the past q forecast errors to anticipate the current value. The MA(q) model has the form:
-  \[Y(t)=\beta_0+\epsilon(t)+\beta_1\epsilon(t-1)+\beta_2\epsilon(t-2)+\cdots+\beta_q\epsilon(t-q)\]
+  \[Y(t)=\beta_0+\epsilon(t)+\beta_1\epsilon(t-1)+\cdots+\beta_q\epsilon(t-q)\]
         Where:\\
 	    \indent\textbullet\ Y(t) is current observed value.\\
             \indent\textbullet\ \(\epsilon(t)\) is random forecasting error of the current period. The expected mean value is 0.\\
-            \indent\textbullet\ \(\epsilon(t-1), \epsilon(t-2), \ldots, \epsilon(t-q)\) are forecast error.\\
+            \indent\textbullet\ \(\epsilon(t-1), \ldots, \epsilon(t-q)\) are forecast errors.\\
             \indent\textbullet\ \(\beta_0, \beta_1, \ldots, \beta_q\) mean values of Y(t) and moving average coefficients.\\
 \subsection{Exponential Smoothing (ETS)}
-Exponential smoothing is one of the most popular models used for demand forecasting in practice. It includes Error, Trend and Seasonal components, thus being called ‘ETS’ [6] 
+In practice, exponential smoothing is one of the most popular models used for demand forecasting. It includes Error, Trend, and Seasonal components, thus being called ‘ETS’ [6] 
 There are three main methods to estimate exponential smoothing. They are: \\
     \indent\textbullet\ Simple exponential smoothing: used when the data has no trend and no seasonal pattern. \\
     \indent\textbullet\ Double exponential smoothing: used for forecasting the time series when the data has a linear trend and no seasonal pattern. \\
-    \indent\textbullet\ Triple exponential smoothing: used for forecasting the time series when the data has both linear trend and seasonal pattern. This method is also called Holt-Winters exponential smoothing [7]
+    \indent\textbullet\ Triple exponential smoothing: used for forecasting the time series when the data has linear and seasonal patterns. This method is also called Holt-Winters exponential smoothing [7]
         \begin{align*}
         y_t &= l_{t-1} + b_{t-1} + s_{t-m} + \varepsilon_t \\
         l_t &= l_{t-1} + \alpha \varepsilon_t \\
@@ -234,20 +234,20 @@ There are three main methods to estimate exponential smoothing. They are: \\
   \item[$\varepsilon_t$] Random error at time $t$ [8]
 \end{description}
 \subsection{STACKING MODEL} 
-Stacking Model, also known as Ensemble Learning, is a machine learning technique that combines multiple machine learning models to create a more accurate predictive model. \\
-    \indent\textbullet\ Improved accuracy: Stacking Model can help improve the accuracy of predictions by combining the strengths of multiple different machine learning models. \\
-    \indent\textbullet\ Reduced overfitting: Stacking Model can help reduce overfitting by using multiple different machine learning models to learn from the data. \\
-    \indent\textbullet\ Increased flexibility: Stacking Model can be used with many different types of machine learning models, making it a versatile tool for different prediction tasks.
+The Stacking Model, also known as Ensemble Learning, is a machine learning technique that combines multiple machine learning models to create a more accurate predictive model. \\
+    \indent\textbullet\ Improved accuracy: The Stacking Model can help improve the accuracy of predictions by combining the strengths of multiple different machine learning models. \\
+    \indent\textbullet\ Reduced overfitting: The Stacking Model can help reduce overfitting by using multiple different machine learning models to learn from the data. \\
+    \indent\textbullet\ Increased flexibility: The Stacking Model can be used with many different types of machine learning models, making it a versatile tool for different prediction tasks.
 
-How Stacking Model Works:
+How the Stacking Model Works:
 \\
    \indent\textbullet\ Train base models: First, you need to train several base machine learning models on the data. These models can be of any type, such as linear regression, decision trees, random forests, etc. \\
-   \indent\textbullet\ Create meta data: After training the base models, you need to create meta data. Meta data is a new dataset that includes the predictions of the base models as input data. \\
-   \indent\textbullet\ Train meta model: Finally, you need to train a meta model on the meta data. The meta model will learn how to combine the predictions of the base models to.\\
-Stacking Model is a powerful machine learning technique that can significantly improve the accuracy of predictive models. By combining the strengths of multiple different machine learning models, Stacking Model offers a flexible and effective approach to solving complex prediction tasks.
+   \indent\textbullet\ Create metadata: After training the base models, you need to create metadata. Metadata is a new dataset that includes the predictions of the base models as input data. \\
+   \indent\textbullet\ Train meta model: Finally, you need to train a meta-model on the metadata. The meta-model will learn how to combine the predictions of the base models to.\\
+The Stacking Model is a powerful machine-learning technique that can significantly improve the accuracy of predictive models. By combining the strengths of multiple different machine learning models, the Stacking Model offers a flexible and effective approach to solving complex prediction tasks.
 
 \subsection{Gated Recurrent Unit (GRU)} 
-Gated Recurrent Unit (GRU) is a special kind of RNN (Recurrent Neural Network). For every element of a sequence, GRU performs a similar task. That is the reason for which it is called recurrent. [8]
+A gated Recurrent Unit (GRU) is a special kind of RNN (Recurrent Neural Network). For every element of a sequence, GRU performs a similar task. That is the reason why it is called recurrent. [8]
 
 A GRU cell consists of two gates: the update gate and the reset gate. These gates control how information flows through the cell, deciding what to keep and what to discard. The update gate determines how much of the past information needs to be passed along to the future. The reset gate determines how much of the past information to forget. These operations are performed by the following equations:
 \begin{align*}
@@ -255,6 +255,33 @@ z_t &= \sigma\left( W^{(z)} x_t + U^{(z)} h_{t-1} \right) \\
 r_t &= \sigma\left( W^{(r)} x_t + U^{(r)} h_{t-1} \right)
 \end{align*}
 \(h_t\) and \(h_{t-1}\) represent the output of the current and previous states, respectively, while \(r_t\) and \(z_t\) indicate the reset and update gates, respectively. \(\sigma\) is the logistic sigmoid function while \(W_r\) and \(U_r\) are the weight matrices.
+
+
+\subsection{Recurrent Neural Network (RNN)}
+RNN is a type of neural network model designed to handle sequential data. The distinctive feature of RNNs is their ability to maintain information across time steps, allowing them to utilize information from previous steps to influence the processing of the current step. This makes RNNs particularly useful in applications where the order of data is important, such as natural language processing (NLP), machine translation, and time series forecasting. \\
+RNNs operate by processing sequential data and maintaining a hidden state to capture information from previous time steps. The formula for updating the hidden state is:
+\[ \alpha_t=\psi_0(W_\alpha_xx_t + W_\alpha_\alpha\alpha_t_-_1 + b_\alpha) \]
+
+Where:\\
+    \begin{itemize}
+        \item $\alpha_t$ is a hidden layer state at each time step t
+        \item $\psi_0$ is the activation function
+        \item $W_\alpha_x$ and $W_\alpha_\alpha$ are weight matrices
+        \item $x_t$ is an input data
+        \item $b_\alpha$ is a bias vector
+    \end{itemize}\\
+
+The formula predicts the output at each time t:\\
+\[ y_t = \Psi_1(W_y_\alpha\alpha_t + b_y) \]
+
+Where:\\
+    \begin{itemize}
+        \item $y_t$ is an output data at each time t
+        \item $\Psi_1$ is the activation function
+        \item $W_y_\alpha$ is weight matrices
+        \item $\alpha_t$ is a hidden layer state
+        \item $b_y$ is a bias vector
+    \end{itemize}
 
 
 \subsection{Long Short Term Memory (LSTM)}
@@ -280,63 +307,31 @@ Where:
   
 \textbf{Effective Sequence Modeling:} Their ability to capture long-term dependencies makes them highly effective for modeling sequential data, enabling accurate predictions in time series forecasting.
 
-\textbf{Time Series Forecasting:} Predicting future values in time series data, such as financial market trends, weather patterns, and energy consumption.
+\subsection{Multilayer Perceptron (MLP)}
+MLP is a type of artificial neural network that belongs to the feed-forward neural network group. It consists of multiple layers: an input layer, one or more hidden layers, and an output layer. Each neuron in an MLP uses a nonlinear activation function, such as the sigmoid, ReLU, or tanh function. These neurons are fully connected, meaning each neuron in one layer is connected to every neuron in the adjacent layer. MLP can learn and model nonlinear relationships between inputs and outputs, making it effective for many complex problems.
 
+The formula to calculate the input of a layer (except the input layer):\\
 
-\subsection{XGBoost} 
-
-XGBoost is an optimized distributed gradient boosting library designed for efficient and scalable training of machine learning models. It is an ensemble learning method that combines the predictions of multiple weak models to produce a stronger prediction. XGBoost stands for “Extreme Gradient Boosting” and it has become one of the most popular and widely used machine learning algorithms due to its ability to handle large datasets and its ability to achieve state-of-the-art performance in many machine learning tasks such as classification and regression.\\
-
-\textbf{Loss Function}:
-        \[ \text{Loss} = \sum_{i=1}^{n} L(y_i, \hat{y}_i) + \sum_{k=1}^{K} \Omega(f_k) \]
-        Where:
-        \begin{itemize}
-            \item $L(y_i, \hat{y}_i)$ is the loss function measuring the error between the predicted value $\hat{y}_i$ and the actual value $y_i$.
-            \item $\Omega(f_k)$ is the penalty function measuring the complexity of the model, helping to prevent overfitting.
-        \end{itemize}
-        
-\textbf{Decision Trees}:
-        Decision trees used in XGBoost are weak learners trained to minimize the loss function by optimizing values at nodes and splitting thresholds.
-        
-\textbf{Regularization Terms}:
-        $\Omega(f_k)$ typically includes two components: regularization terms to control the depth of trees ($T$) and reduce the number of leaf nodes ($J$):
-        \[ \Omega(f_k) = \gamma T + \frac{1}{2} \lambda \sum_{j=1}^{J} w_j^2 \]
-        Where:
-        \begin{itemize}
-            \item $\gamma$ and $\lambda$ are regularization parameters.
-            \item $T$ is the depth of the tree.
-            \item $w_j$ is the weight value of the $j$-th node.
-        \end{itemize}
-        
-\textbf{Optimization Objective}:
-        The optimization objective of XGBoost is to minimize the loss function by finding the best trees $f_k$:
-        \[ \text{Obj} = \sum_{i=1}^{n} L(y_i, \hat{y}_i) + \sum_{k=1}^{K} \Omega(f_k) \]
-
-\subsection{Recurrent Neural Network (RNN)}
-Recurrent Neural Network (RNN) is a type of neural network model designed to handle sequential data. The distinctive feature of RNNs is their ability to maintain information across time steps, allowing them to utilize information from previous steps to influence the processing of the current step. This makes RNNs particularly useful in applications where the order of data is important, such as natural language processing (NLP), machine translation, and time series forecasting. \\
-RNNs operate by processing sequential data and maintaining a hidden state to capture information from previous time steps. The formula for updating the hidden state is:
-\[\alpha_t=\psi_0(W_\alpha_xx_t + W_\alpha_\alpha\alpha_t_-_1 + b_\alpha)\]
+\[ z^{(l)} = W^{(l) T}\alpha^{(l-1)} + b^{(l)} \]
 
 Where:\\
     \begin{itemize}
-        \item $\alpha_t$ is a hidden layer state at each time step t
-        \item $\psi_0$ is the activation function
-        \item $W_\alpha_x$ and $W_\alpha_\alpha$ are weight matrices
-        \item $x_t$ is an input data
-        \item $b_\alpha$ is a bias vector
+        \item $z^{(l)}$ is a matrix containing the input values for each neuron in layer (l)
+        \item $W^{(l)}$ is a matrix containing the connection weights between neurons in layer (l-1) and neurons in layer (l)
+        \item $\alpha^{(l-1)}$ is a matrix containing the output values of layer (l-1) and serves as the input for layer (l). For the layer immediately following the input layer, it will be replaced by matrix X
+        \item $b^{(l)}$ is a matrix containing the threshold values for each neuron in layer (l)
     \end{itemize}\\
+        
+When the input value exceeds the threshold, meaning the neuron's z value is greater than 0, the neuron will produce an output value. The formula to calculate the output of a layer (except the input layer):\\
 
-The formula predicts the output at each time t:\\
-\[ y_t = \Psi_1(W_y_\alpha\alpha_t + b_y) \]
+\[ \alpha^{(l)} = f(z^{(l)}) \]
 
 Where:\\
     \begin{itemize}
-        \item $y_t$ is an output data at each time t
-        \item $\Psi_1$ is the activation function
-        \item $W_y_\alpha$ is weight matrices
-        \item $\alpha_t$ is a hidden layer state
-        \item $b_y$ is a bias vector
-    \end{itemize}
+        \item $\alpha^{(l)}$ is a matrix containing the output values of each neuron belongs to layer l
+        \item  $f()$ is an activation function
+    \end{itemize}\\
+    
 \section{Result}
 \subsection{Evaluation Methods}
 \textbf{Mean Percentage Absolute Error} (MAPE): is the average percentage error in a set of predicted values.\\
@@ -479,7 +474,7 @@ Where: \\
          \hline
          \multirow{2}{*}{Stacking Model} &\ 7:3 &\ 1620.452&\ 1429.037&\ 4.713 \\ &\ 8:2 &\ 817.089&\ 680.45 &\ 2.234 \\&\textbf{9:1} &\textbf{733.845} &\textbf{594.598} &\textbf{1.893} \\
          \hline
-         \multirow{2}{*}{LSTM} &\ 7:3 &\ 187.121 &\ 0.477 &\ 145.069 \\ &\ 8:2 &\ 183.637 &\ 0.452 &\ 140.525 \\&\textbf{9:1} &\textbf{179.470} &\textbf{0.44} &\textbf{139.233} \\
+          \multirow{2}{*}{LSTM} &\ 7:3 &\ 187.121 &\ 0.477 &\ 145.069 \\ &\ 8:2 &\ 183.637 &\ 0.452 &\ 140.525 \\&\textbf{9:1} &\textbf{179.470} &\textbf{0.44} &\textbf{139.233} \\
          \hline
          \multirow{2}{*}{BatchTST} &\textbf{7:3} &\textbf{?}&\textbf{?}&\textbf{?} \\ &\ 8:2 &\ ?&\ ? &\ ? \\&\ 9:1 &\ ? &\ ? &\ ? \\
          \hline
