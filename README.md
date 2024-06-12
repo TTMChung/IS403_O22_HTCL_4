@@ -6,7 +6,7 @@ Topic:  FORECASTING THE CURRENCY PRICE<br>
 Teacher: Assoc. Prof. Dr. Nguyen Dinh Thuan <br>
 Instructor: Mr. Nguyen Minh Nhut <br>
 Class: IS403.O22.HTCL<br>
-1st semester of the 2023-2024 <br>
+1st semester of 2023-2024 <br>
 
 ## Team members
 | STT | MSSV | Full name | Role | Github | Email |
