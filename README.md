@@ -1,10 +1,10 @@
 # [IS403] Data Analysis in Business
 <h2>FINAL PROJECT</h2>
 Topic:  FORECASTING THE CURRENCY PRICE<br>
-Teacher: Assoc. Prof. Dr. Nguyen Dinh Thuan 
-Instructor: Mr. Nguyen Minh Nhut 
+Teacher: Assoc. Prof. Dr. Nguyen Dinh Thuan <br>
+Instructor: Mr. Nguyen Minh Nhut <br>
 Class: IS403.O22.HTCL<br>
-1st semester of the 2023-2024
+1st semester of the 2023-2024 <br>
 
 ## Team members
 | STT | MSSV | Full name | Role | Github | Email |
