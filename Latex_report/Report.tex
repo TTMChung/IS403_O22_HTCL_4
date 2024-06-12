@@ -37,7 +37,7 @@ The rapid fluctuations in currency exchange rates pose significant challenges fo
 
 \begin{keywords}
 
-forecasting the currency price, Linear Regression, Autoregressive Integrated Moving Average (ARIMA), Exponential Smoothing State Space Model (ETS), Stacking model, Multilayer Perceptron (MLP), Recurrent Neural Networks (RNN), Gated Recurrent Units (GRU), Long Short-Term Memory (LSTM)
+forecasting the currency price, Linear Regression, Autoregressive Integrated Moving Average (ARIMA), Exponential Smoothing (ETS), Stacking model, Multilayer Perceptron (MLP), Recurrent Neural Networks (RNN), Gated Recurrent Units (GRU), Long Short-Term Memory (LSTM)
 \end{keywords}
 
 \titlepgskip=-15pt
@@ -415,7 +415,7 @@ Where: \\
          \hline
          \multirow{2}{*}{RNN} & 7:3 & 93.655 & 0.252 & 67.515 \\ & 8:2 & 92.962 & 0.254 & 69.081 \\ & \textbf{9:1} & \textbf{81.738} & \textbf{0.205} &\ \textbf{56.667} \\
          \hline
-         \multirow{2}{*}{GRU} & 7:3 & 97.988 & 0.262 & 70.344 \\ & 8:2 & 91.513 & 0.243 & 66.115 \\ & \textbf{9:1} & \textbf{86.212} & \textbf{0.229 &\ \textbf{63.533} \\
+         \multirow{2}{*}{GRU} & 7:3 & 97.988 & 0.262 & 70.344 \\ & 8:2 & 91.513 & 0.243 & 66.115 \\ & \textbf{9:1} & \textbf{86.212} & \textbf{0.229} &\ \textbf{63.533} \\
          \hline
          \multirow{2}{*}{LSTM} &\ 7:3 &\ 101.108 &0.287 &77.325\\ &\ 8:2 &\ 127.054&\ 0.367 &\ 100.78 \\&\textbf{9:1}&\textbf{95.397} &\textbf{0.26} &\textbf{72.617} \\
          \hline
@@ -475,8 +475,8 @@ Where: \\
   \centering
   \begin{minipage}{0.8\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{}
-    \caption{GRU model's result with 7:3 splitting proportion}
+    \includegraphics[width=\linewidth]{GRU/GRU_eur_91.png}
+    \caption{GRU model's result with 9:1 splitting proportion}
     \label{fig15}
   \end{minipage}
 \end{figure}
@@ -578,8 +578,8 @@ Where: \\
   \centering
   \begin{minipage}{0.8\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{}
-    \caption{GRU model's result with 7:3 splitting proportion}
+    \includegraphics[width=\linewidth]{GRU/GRU_gbp_91.png}
+    \caption{GRU model's result with 9:1 splitting proportion}
     \label{fig23}
   \end{minipage}
 \end{figure}
@@ -679,8 +679,8 @@ Where: \\
   \centering
   \begin{minipage}{0.8\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{}
-    \caption{GRU model's result with 7:3 splitting proportion}
+    \includegraphics[width=\linewidth]{GRU/GRU_jpy_91.png}
+    \caption{GRU model's result with 9:1 splitting proportion}
     \label{fig31}
   \end{minipage}
 \end{figure}
@@ -709,12 +709,16 @@ In the study, we developed and evaluated several models for forecasting currency
 Recurrent Unit (GRU), Stacking Model and Multi-layer Perceptron (MLP). The assessment and comparison of forecasting methods highlighted that each technique possessed its own advantages and drawbacks. We use metrics like RMSE, MAE and MAPE to evaluate model accuracy. By comparing these evaluation metrics, we determined that <> are well-suited for forecasting currency price. These models performed more accurately in future prices than the others. 
 \subsection{Future Plans}
 The above algorithms have demonstrated promising results in forecasting currency prices. However, it is necessary to enhance the model to achieve greater accuracy and reliability. To accomplish this, several key strategies can be implemented \\
-\indent\textbullet\ Enhancing the accuracy of the model. It includes improving data quality by cleaning and preprocessing data before being used in the model.\\
+\indent\textbullet\ Enhancing the accuracy of the model: It includes improving data quality by cleaning and preprocessing data before being used in the model.\\
+\indent\textbullet\ Combine various Neural Network methods: It enhances the accuracy of forecasting model by combining Neural Network together. CNN-LSTM hybrid model, for instances, is effective as CNN extracts temporal features from data while LSTM captures long-term dependencies. \\
+\indent\textbullet\ Research on Advanced prediction models: Find new advanced techniques such as Deep Learning and Reinforcement Learning to build more sophisticated and accurate prediction models. \\
+\indent\textbullet\ Build website: Build a website that integrates various neural network models to forecast currency prices. The website can display real-time currency prices and provide features to view and forecast future prices, ensuring real-time data processing. \\
 
 \section*{Acknowledgment}
 \addcontentsline{toc}{section}{Acknowledgment}
-First and foremost, we would like to express our sincere gratitude to \textbf{Assoc. Prof. Dr. Nguyen Dinh Thuan} and \textbf{Mr. Nguyen Minh Nhut} for their exceptional guidance, expertise, and invaluable feedback throughout the research process. Their mentorship and unwavering support have been instrumental in shaping the direction and quality of this study. Their profound knowledge, critical insights, and attention to detail have significantly contributed to the success of this research.
-\\This research would not have been possible without the support and contributions of our mentors. We would like to extend our heartfelt thanks to everyone involved for their invaluable assistance, encouragement, and belief in our research. Thank you all for your invaluable assistance and encouragement.
+Firstly, we send our deepest appreciation to both \textbf{Assoc. Prof. Dr. Nguyen Dinh Thuan} and \textbf{Mr. Nguyen Minh Nhut} for their invaluable guidance and insightful lessons during the research process. Their constructive feedback has enriched our research and we have not only knowledge, but also the skills needed for our careers. 
+\\Secondly, this research would not have been done without the efforts and contributions of our teammates. Thank you for your continued efforts. 
+\\Finally, we would like to extend our heartfelt thanks to everyone involved for their invaluable assistance, encouragement, and belief in our research. Thank you all for your invaluable assistance and encouragement.
 
 \EOD
 \printbibliography
