@@ -1,3 +1,5 @@
+![alt text](https://camo.githubusercontent.com/3fc58d630f8f770987b3800a90372321c44dcf0000876d71ebe441f5538437e2/68747470733a2f2f692e696d6775722e636f6d2f576d4d6e5352742e706e67)
+
 # [IS403] Data Analysis in Business
 <h2>FINAL PROJECT</h2>
 Topic:  FORECASTING THE CURRENCY PRICE<br>
