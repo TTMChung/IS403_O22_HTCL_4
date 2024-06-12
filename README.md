@@ -11,7 +11,7 @@ Class: IS403.O22.HTCL<br>
 ## Team members
 | STT | MSSV | Full name | Role | Github | Email |
 | --- | --- | --- | --- | --- | --- |
-| 1 | 21520653 | Trịnh Thị Mỹ Chung | Leader | [ttmc1809](https://github.com/ttmc1809) | 21520653@gm.uit.edu.vn
+| 1 | 21520653 | Trịnh Thị Mỹ Chung | Leader | [TTMChung](https://github.com/TTMChung) | 21520653@gm.uit.edu.vn
 | 2 | 21520595 | Trần Phương Anh | Member | [gracietran23](https://github.com/gracietran23) | 21520595@gm.uit.edu.vn
 | 3 | 21522187 | Chế Duy Khang | Member | [Cheduykhang](https://github.com/Cheduykhang)| 21522187@gm.uit.edu.vn
 
