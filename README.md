@@ -17,23 +17,24 @@ Class: IS403.O22.HTCL<br>
 
 ## Task Assignment and Progress
 
-| Task Description                                | Trinh Thi My Chung | Tran Phuong Anh | Che Duy Khang |
-|-------------------------------------------------|--------------------|-----------------|---------------|
-| Build report in Latex                                  | [x]                | [ ]             | [ ]           |
-| [Report] Write Abstract                                   | [x]                | [ ]             | [ ]           |
-| [Report] Write I. Introduction                                   | [x]                | [ ]             | [ ]           |
-| [Report] Write II. Related works                                   | [ ]                | [x]             | [ ]           |
-| [Report] Write III. Materials                                   | [x]                | [ ]             | [ ]           |
-| [Report] Write IV. Methodology (ARIMA, RNN, MLP)                                   | [x]                | [ ]             | [ ]           |
-| [Report] Write IV. Methodology (ETS, GRU)                                   | [ ]                | [x]             | [ ]           |
-| [Report] Write IV. Methodology (Linear Regression, Stacking Model, LSTM)                                   | [ ]                | [ ]             | [x]           |
-| [Report] Write V. Results                                   | [x]                | [x]             | [x]           |
-| [Report] Write VI. Conclusion                                   | [ ]                | [x]             | [ ]           |
-| Build model: ARIMA, RNN, MLP                           | [x]                | [ ]             | [ ]           |
-| Build model: ETS, GRU                                  | [ ]                | [x]             | [ ]           |
-| Build model: Linear Regression, Stacking Model, LSTM   | [ ]                | [ ]             | [x]           |
-| Summarize and edit report                              | [x]                | [x]             | [x]           |
-| Complete                                               |  100%              | 100%            | 100%          |    
+| Task Description                                     | Trinh Thi My Chung | Tran Phuong Anh | Che Duy Khang |
+|------------------------------------------------------|:------------------:|:---------------:|:-------------:|
+| Build report in Latex                                | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
+| [Report] Write Abstract                              | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
+| [Report] Write I. Introduction                       | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
+| [Report] Write II. Related works                     | <center>[ ]</center> | <center>[x]</center> | <center>[ ]</center> |
+| [Report] Write III. Materials                        | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
+| [Report] Write IV. Methodology (ARIMA, RNN, MLP)     | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
+| [Report] Write IV. Methodology (ETS, GRU)            | <center>[ ]</center> | <center>[x]</center> | <center>[ ]</center> |
+| [Report] Write IV. Methodology (Linear Regression, Stacking Model, LSTM) | <center>[ ]</center> | <center>[ ]</center> | <center>[x]</center> |
+| [Report] Write V. Results                            | <center>[x]</center> | <center>[x]</center> | <center>[x]</center> |
+| [Report] Write VI. Conclusion                        | <center>[ ]</center> | <center>[x]</center> | <center>[ ]</center> |
+| Build model: ARIMA, RNN, MLP                         | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
+| Build model: ETS, GRU                                | <center>[ ]</center> | <center>[x]</center> | <center>[ ]</center> |
+| Build model: Linear Regression, Stacking Model, LSTM | <center>[ ]</center> | <center>[ ]</center> | <center>[x]</center> |
+| Summarize and edit report                            | <center>[x]</center> | <center>[x]</center> | <center>[x]</center> |
+| Complete                                             | <center>**100% **</center>    | <center>** 100%  **</center> | <center>** 100%   **</center>   |
+
 
 ---
 
