@@ -33,7 +33,7 @@ Class: IS403.O22.HTCL<br>
 | Build model: ETS, GRU                                | <center>[ ]</center> | <center>[x]</center> | <center>[ ]</center> |
 | Build model: Linear Regression, Stacking Model, LSTM | <center>[ ]</center> | <center>[ ]</center> | <center>[x]</center> |
 | Summarize and edit report                            | <center>[x]</center> | <center>[x]</center> | <center>[x]</center> |
-| Complete                                             | <center>**100% **</center>    | <center>** 100%  **</center> | <center>** 100%   **</center>   |
+| Complete                                             | <center>**100%**</center>    | <center>**100%**</center> | <center>**100%**</center>   |
 
 
 ---
