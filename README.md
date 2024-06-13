@@ -37,8 +37,8 @@ Class: IS403.O22.HTCL<br>
 
 
 ---
-
-### Legend:
+[x]
+## Legend:
 - [x] Task completed
 - [ ] Task not completed yet
 - (100%) Percentage completion
