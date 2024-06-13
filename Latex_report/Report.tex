@@ -46,57 +46,10 @@ forecasting the currency price, Linear Regression, Autoregressive Integrated Mov
 
 \section{Introduction}
 \label{sec:introduction}
-The currency price, often the exchange rate between different national currencies plays a crucial role in global financial markets and economies. Its fluctuations significantly impact various aspects of the economy, including trade, investment, and banking. While currency price movements can present opportunities for investors and businesses, they also introduce uncertainties and risks.\par
-\noindent
-Traditionally, forecasting currency prices has been challenging due to the complex and unpredictable nature of the forex market. However, the advent of machine learning has opened new possibilities in this field. Machine learning algorithms excel at processing large volumes of data and identifying complex patterns that may not be discernible to humans.\par
-\noindent
-In recent years, several algorithms have gained prominence in currency price forecasting. Exponential Smoothing State Space Model (ETS), Stacking Model, and PatchTST are among the notable ones. ETS provides a framework for modeling and forecasting time series data, while Stacking Model combines multiple models to improve predictive accuracy. PatchTST, on the other hand, utilizes a patch-based approach for time series forecasting, leveraging both local and global patterns in the data.\par
-\noindent
-By leveraging statistical models and machine learning techniques for currency price forecasting, significant benefits can be derived for investors, businesses, and even entire nations. Understanding market trends and fluctuations enables informed decision-making regarding investment, risk management, and business planning based on more accurate currency price forecasts.\\
-\noindent
-This article explores the application of statistical models and machine learning algorithms in forecasting currency prices, highlighting their potential to enhance decision-making processes and drive economic growth.
-
-\bigskip
-\raggedright\textbf{GBP (Great British Pound)}
-\bigskip
 \justify
-The British Pound Sterling (GBP), dating back to its introduction in the late 17th century, boasts a rich and enduring history. Its evolution from the establishment of paper money by the Bank of England to becoming one of the oldest and most widely traded currencies globally signifies its importance. Despite facing numerous economic and geopolitical challenges over the centuries, including wars and financial crises, the GBP has maintained its position as a symbol of stability and strength in the international financial system. Today, the GBP remains a cornerstone of global finance, with its exchange rate closely monitored by investors, traders, and policymakers worldwide. Its value reflects not only the economic health of the United Kingdom but also broader trends in international trade and finance. Thus, the GBP's legacy and resilience underscore its significance in shaping the landscape of global economics for generations.
+Currency prices represent exchange rates between different currencies from different countries. Their fluctuations significantly impact various aspects of the global economy, including trade, investment and banking. This report focuses on time-series exchange rate forecasts between Vietnamese Dong (VND) and Euro (EUR), British Pound (GBP) and Japanese Yen (JPY). Helps businesses manage risks and optimize profits, providing opportunities to improve forecasting capabilities, create competitive advantages and promote strategic development in the global business environment.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.34]{}
-    \label{fig1:us_image}
-    \caption{Exchange rate of GBP from 2019 to 2024}
-\end{figure}
-
-
-
-\raggedright
-\bigskip
-\textbf{EUR (Euro)}
-\bigskip
-\justify
-The Euro is the common currency of the member countries in the Eurozone, a monetary union consisting of 19 of the 27 European Union (EU) member states. It is widely used in trade and finance, serving as a primary medium of exchange for transactions within the Eurozone and beyond. The Euro's exchange rate is closely monitored by economists, investors, and policymakers, as it serves as a key indicator of the region's economic health and stability. Its value against other major currencies, such as the US dollar and the British pound, is often used as a benchmark for global trade and investment. Despite occasional fluctuations, the Euro has maintained a relatively stable exchange rate, contributing to its reputation for stability and credibility in the international financial system. This stability has attracted trust from investors and businesses worldwide, making the Euro one of the most widely accepted and respected currencies in the world.
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.35]{}
-    \caption{Exchange rate of EUR from 2019 to 2024}
-    \label{fig2:euro_image}
-\end{figure}
-
-
-\bigskip
-\textbf{EUR (Japanese Yen)}
-\bigskip
-\justify
-The yen is the official currency of Japan and is widely recognized as one of the major currencies in the world. Its exchange rate is closely monitored in global financial markets due to Japan's significant role in international trade and finance. The yen's value can be influenced by various factors, including Japan's economic performance, monetary policies, and geopolitical developments.
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.35]{}
-    \label{fig3:yen_image}
-    \caption{Exchange rate of EUR from 2019 to 2024}
-\end{figure}
-
+To analyze and forecast exchange rates between Vietnam and other countries, we use Linear Regression, ARIMA, Exponential Smoothing State Space Model (ETS), Stacking Model (XGBoost and Linear Regression), RNN, LSTM, GRU, MLP. Each model brings distinct strengths to the analysis, facilitating a thorough examination of the intricate dynamics shaping currency movements.
 \section{Related Works}
 \justify
 Pengfei Liu et al. \cite{rw1} studied currency price prediction by implementing multiple forecasting models to forecast and analyze the daily currency price of USD/RMB. The research uses CNN, STLSTM, and AM model to estimate the model accuracy. Experiments show that all three models above have higher forecasting accuracy and coverage than other models and they are suitable for forecasting the closing price of the USD/RMB currency price.
@@ -327,30 +280,42 @@ Where:\\
         \item \(h_t'\) is the candidate hidden state at time \(t\)
         \item \(\sigma\) is the logistic sigmoid function \cite{gru_equation} \\
     \end{itemize}\\
-
 \subsection{Long Short-Term Memory (LSTM)} 
-LSTM (Long Short-Term Memory) networks are a specialized type of recurrent neural network (RNN) architecture designed to address the challenge of learning and remembering over long sequences of data. They excel at capturing long-term dependencies in sequential data, making them well-suited for tasks such as time series forecasting.\par
-\noindent
-
-\textbf{Memory Cells:} LSTM networks utilize memory cells to store and update information over time, allowing them to retain relevant information over long sequences.
-  
-\textbf{Gating Mechanisms:} They incorporate gates to regulate the flow of information, including input gates, forget gates, and output gates, enabling precise control over what information is stored or discarded.
-
-\textbf{Update Cell State:} LSTM networks update their cell state by combining the previous cell state with new information, controlled by the input and forget gates. The equation for updating the cell state is:
-\begin{equation*}
-  C_t = f_t \cdot C_{t-1} + i_t \cdot \tilde{C}_t
-\end{equation*}
+The LSTM (Long Short-Term Memory) model, a specialized form of Recurrent Neural Network (RNN), was introduced by Hochreiter and Schmidhuber in 1997 to tackle the issue of long-term dependencies. It consists of a chain-like structure with up to four interacting layers. Each LSTM includes a cell state and three gates: forget, input, and output. These gates are controlled by sigmoid layers.
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.8\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{Figure_algorithm/lstm (1).png}
+    \caption{Structure of the LSTM model \cite{mlp_image}}
+    \label{fig_mlp}
+  \end{minipage}
+\end{figure}
+The initial step of the LSTM model involves the forget gate layer, which decides what information to discard from the cell state. The formula for the forget gate is:
+\[ f_t = \sigma(W_f \cdot [h_{t-1}, x_t] + b_f) \]
 Where:
-        \begin{itemize}
-            \item \( C_t \) is the updated cell state.
-            \item \( f_t \) is the forget gate activation.
-            \item \( C_{t-1} \) is the previous cell state.
-            \item \( \tilde{C}_t \) is the candidate cell state.
-        \end{itemize}
+\begin{itemize}
+    \item \( \sigma \) is the sigmoid function.
+    \item \( W_f \) and \( b_f \) are the weights and bias of the forget gate layer.
+\end{itemize}
 
-\textbf{Memory Retention:} LSTM networks are adept at retaining and selectively updating information over long sequences, making them effective for tasks requiring memory of past events.
-  
-\textbf{Effective Sequence Modeling:} Their ability to capture long-term dependencies makes them highly effective for modeling sequential data, enabling accurate predictions in time series forecasting.
+Subsequent steps determine which information is stored in and updates the cell state. This involves an input gate layer and a vector of values from the tanh layer. The formulas for the input gate and state update are:
+\begin{align*}
+    i_t & = \sigma(W_i \cdot [h_{t-1}, x_t] + b_i) \\
+    \tilde{C}_t & = \tanh(W_C \cdot [h_{t-1}, x_t] + b_C) \\
+    C_t & = f_t \cdot C_{t-1} + i_t \cdot \tilde{C}_t
+\end{align*}
+Where:
+\begin{itemize}
+    \item \( C_{t-1} \) and \( C_t \) are the cell states at time \( t-1 \) and \( t \)
+    \item \( W_i, W_C \), and their respective variables are weights,
+\end{itemize}
+
+Finally, the output \( h_t \) is determined by the output gate and the cell state. The formula for the output gate is:
+\begin{align*}
+    o_t & = \sigma(W_o \cdot [h_{t-1}, x_t] + b_o) \\
+    h_t & = o_t \cdot \tanh(C_t)
+\end{align*}
 
 \subsection{Multilayer Perceptron (MLP)}
 MLP is a type of artificial neural network that belongs to the feed-forward neural network group. It consists of multiple layers: an input layer, one or more hidden layers, and an output layer. Each neuron in an MLP uses a nonlinear activation function, such as the sigmoid, ReLU, or tanh function. These neurons are fully connected, meaning each neuron in one layer is connected to every neuron in the adjacent layer. MLP can learn and model nonlinear relationships between inputs and outputs, making it effective for many complex problems. \cite{mlp}
