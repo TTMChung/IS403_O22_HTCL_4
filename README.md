@@ -37,7 +37,7 @@ Class: IS403.O22.HTCL<br>
 
 
 ---
-[x]
+- [x]
 ## Legend:
 - [x] Task completed
 - [ ] Task not completed yet
