@@ -21,7 +21,7 @@ Class: IS403.O22.HTCL<br>
 |------------------------------------------------------|:------------------:|:---------------:|:-------------:|
 | Build report in Latex                                | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
 | [Report] Write Abstract                              | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
-| [Report] Write I. Introduction                       | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
+| [Report] Write I. Introduction                       | <center>[ ]</center> | <center>[ ]</center> | <center>[x]</center> |
 | [Report] Write II. Related works                     | <center>[ ]</center> | <center>[x]</center> | <center>[ ]</center> |
 | [Report] Write III. Materials                        | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
 | [Report] Write IV. Methodology (ARIMA, RNN, MLP)     | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
