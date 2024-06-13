@@ -19,27 +19,27 @@ Class: IS403.O22.HTCL<br>
 
 | Task Description                                     | Trinh Thi My Chung | Tran Phuong Anh | Che Duy Khang |
 |------------------------------------------------------|:------------------:|:---------------:|:-------------:|
-| Build report in Latex                                | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
-| [Report] Write Abstract                              | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
-| [Report] Write I. Introduction                       | <center>[ ]</center> | <center>[ ]</center> | <center>[x]</center> |
-| [Report] Write II. Related works                     | <center>[ ]</center> | <center>[x]</center> | <center>[ ]</center> |
-| [Report] Write III. Materials                        | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
-| [Report] Write IV. Methodology (ARIMA, RNN, MLP)     | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
-| [Report] Write IV. Methodology (ETS, GRU)            | <center>[ ]</center> | <center>[x]</center> | <center>[ ]</center> |
-| [Report] Write IV. Methodology (Linear Regression, Stacking Model, LSTM) | <center>[ ]</center> | <center>[ ]</center> | <center>[x]</center> |
-| [Report] Write V. Results                            | <center>[x]</center> | <center>[x]</center> | <center>[x]</center> |
-| [Report] Write VI. Conclusion                        | <center>[ ]</center> | <center>[x]</center> | <center>[ ]</center> |
-| Build model: ARIMA, RNN, MLP                         | <center>[x]</center> | <center>[ ]</center> | <center>[ ]</center> |
-| Build model: ETS, GRU                                | <center>[ ]</center> | <center>[x]</center> | <center>[ ]</center> |
-| Build model: Linear Regression, Stacking Model, LSTM | <center>[ ]</center> | <center>[ ]</center> | <center>[x]</center> |
-| Summarize and edit report                            | <center>[x]</center> | <center>[x]</center> | <center>[x]</center> |
+| Build report in Latex                                | <center>X</center> | <center> </center> | <center> </center> |
+| [Report] Write Abstract                              | <center>X</center> | <center> </center> | <center> </center> |
+| [Report] Write I. Introduction                       | <center> </center> | <center> </center> | <center>X</center> |
+| [Report] Write II. Related works                     | <center> </center> | <center>X</center> | <center> </center> |
+| [Report] Write III. Materials                        | <center>X</center> | <center> </center> | <center> </center> |
+| [Report] Write IV. Methodology (ARIMA, RNN, MLP)     | <center>X</center> | <center> </center> | <center> </center> |
+| [Report] Write IV. Methodology (ETS, GRU)            | <center> </center> | <center>X</center> | <center> </center> |
+| [Report] Write IV. Methodology (Linear Regression, Stacking Model, LSTM) | <center> </center> | <center> </center> | <center>X</center> |
+| [Report] Write V. Results                            | <center>X</center> | <center>X</center> | <center>X</center> |
+| [Report] Write VI. Conclusion                        | <center> </center> | <center>X</center> | <center> </center> |
+| Build model: ARIMA, RNN, MLP                         | <center>X</center> | <center> </center> | <center> </center> |
+| Build model: ETS, GRU                                | <center> </center> | <center>X</center> | <center> </center> |
+| Build model: Linear Regression, Stacking Model, LSTM | <center> </center> | <center> </center> | <center>X</center> |
+| Summarize and edit report                            | <center>X</center> | <center>X</center> | <center>X</center> |
 | Complete                                             | <center>**100%**</center>    | <center>**100%**</center> | <center>**100%**</center>   |
 
 
+
 ---
-- [x]  
 ## Legend:
-- [x] Task completed
+- X: Task completed
 - [ ] Task not completed yet
 - (100%) Percentage completion
 
