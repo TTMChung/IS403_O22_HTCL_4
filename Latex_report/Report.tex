@@ -32,7 +32,7 @@
 
 \begin{abstract}
 
-The rapid fluctuations in currency exchange rates pose significant challenges for investors and policymakers. This study aims to forecast currency prices using a range of statistical, machine learning, and deep learning algorithms. The models employed in this research include Linear Regression, Autoregressive Integrated Moving Average (ARIMA), Exponential Smoothing State Space Model (ETS), Stacking model, Multilayer Perceptron (MLP), Recurrent Neural Networks (RNN), Gated Recurrent Units (GRU), and Long Short-Term Memory (LSTM). Evaluation metrics such as Mean Absolute Percentage Error (MAPE), Root Mean Squared Error (RMSE), and Mean Absolute Error (MAE) are utilized to assess the performance of each forecasting model on various currency datasets. The findings indicate that deep learning models, particularly GRU and LSTM, outperform other methods in predicting currency prices.
+The rapid fluctuations in currency exchange rates pose significant challenges for investors and policymakers. This study aims to forecast currency prices using a range of statistical, machine learning, and deep learning algorithms. The models employed in this research include Linear Regression (LR), Autoregressive Integrated Moving Average (ARIMA), Exponential Smoothing State Space Model (ETS), Stacking Model, Multilayer Perceptron (MLP), Recurrent Neural Networks (RNN), Gated Recurrent Units (GRU), and Long Short-Term Memory (LSTM). Evaluation metrics such as Mean Absolute Percentage Error (MAPE), Root Mean Squared Error (RMSE), and Mean Absolute Error (MAE) are utilized to assess the performance of each forecasting model on various currency datasets, specifically EUR-VND, GBP-VND, and JPY-VND. The findings indicate that the RNN model performs best for the EUR-VND dataset with a 7:3 split ratio, while the LSTM model excels with 8:2 and 9:1 split ratios. For the GBP-VND dataset, the GRU model is the best for 8:2 and 9:1 split ratios, and the RNN model is optimal for the 7:3 split ratio. Similarly, for the JPY-VND dataset, the LSTM model delivers the best results for 8:2 and 9:1 split ratios, with the RNN model being optimal for the 7:3 split ratio. These results highlight the effectiveness of deep learning models, particularly RNN, GRU, and LSTM, in forecasting currency prices.
 \end{abstract}
 
 \begin{keywords}
@@ -47,9 +47,11 @@ The rapid fluctuations in currency exchange rates pose significant challenges fo
 \section{Introduction}
 \label{sec:introduction}
 \justify
-Currency prices represent exchange rates between different currencies from different countries. Their fluctuations significantly impact various aspects of the global economy, including trade, investment and banking. This report focuses on time-series exchange rate forecasts between the Vietnamese Dong (VND) and Euro (EUR), British Pound (GBP) and Japanese Yen (JPY). Helps businesses manage risks and optimize profits, providing opportunities to improve forecasting capabilities, create competitive advantages and promote strategic development in the global business environment.
+Currency prices represent exchange rates between different currencies from different countries, and their fluctuations significantly impact various aspects of the global economy, including trade, investment, and banking. This report focuses on time-series exchange rate forecasts between the Vietnamese Dong (VND) and the Euro (EUR), British Pound (GBP), and Japanese Yen (JPY). Accurate forecasting of these exchange rates helps businesses manage risks and optimize profits, providing opportunities to enhance forecasting capabilities, create competitive advantages, and promote strategic development in the global business environment.
 
-To analyze and forecast exchange rates between Vietnam and other countries, we use Linear Regression, ARIMA, Exponential Smoothing State Space Model (ETS), Stacking Model (XGBoost and Linear Regression), RNN, LSTM, GRU, MLP. Each model brings distinct strengths to the analysis, facilitating a thorough examination of the intricate dynamics shaping currency movements.
+To analyze and forecast exchange rates between Vietnam and other countries, we employ a variety of models, including Linear Regression (LR), Autoregressive Integrated Moving Average (ARIMA), Exponential Smoothing State Space Model (ETS), Stacking Model (using XGBoost and Linear Regression), Recurrent Neural Networks (RNN), Long Short-Term Memory (LSTM), Gated Recurrent Units (GRU), and Multilayer Perceptron (MLP). Each model offers distinct strengths, facilitating a comprehensive examination of the complex dynamics influencing currency movements.
+
+In our study, we utilize evaluation metrics such as Mean Absolute Percentage Error (MAPE), Root Mean Squared Error (RMSE), and Mean Absolute Error (MAE) to assess the performance of each forecasting model. This comprehensive evaluation provides valuable insights into the effectiveness of various forecasting models.
 
 \section{Related Works}
 \justify
@@ -66,7 +68,9 @@ Escudero et al. \cite{rw5} studies on forecasting EUR/USD exchange rates, using 
 \section{Materials}
 \subsection{Dataset}
 \justify
-This study will utilize historical exchange rate data of Euro (EUR) to Vietnamese Dong (VND), British Pound (GBP) to Vietnamese Dong (VND), and Japanese Yen (JPY) to Vietnamese Dong (VND) from March 1, 2019, to June 1, 2024. The dataset includes columns such as Date, Purchase Price, Sale Price, and Transfer Price. Since the objective is to forecast foreign currencies' sale prices, only data related to the Sale (VND) columns will be processed.
+This study will utilize historical exchange rate data from the Euro (EUR) to the Vietnamese Dong (VND), the British Pound (GBP) to the Vietnamese Dong (VND), and the Japanese Yen (JPY) to the Vietnamese Dong (VND) from March 1, 2019, to June 1, 2024. The dataset includes columns such as Date, Purchase Price, Sale Price, and Transfer Price. Since the objective of the study is to forecast the sale prices of foreign currencies, only data related to the Sale Price (VND) columns will be processed.
+
+To forecast the sale prices of foreign currencies, the study will focus on analyzing and processing historical information related to the exchange rates of the three major foreign currencies, namely the Euro, the British Pound, and the Japanese Yen against the Vietnamese Dong. The period from early March 2019 to early June 2024 was chosen to ensure sufficient data for building forecasting models. This dataset includes detailed information on purchase prices, sale prices, and transfer prices on a daily basis. However, to achieve the main goal of forecasting the sale prices of foreign currencies, only the data on sale prices (in VND) will be selected and thoroughly analyzed. This approach helps focus on the factors that directly affect the fluctuations in sale prices, thereby building highly accurate forecasting models.
 
 \subsection{Descriptive Statistics}
 \begin{table}[H]
@@ -103,7 +107,8 @@ This study will utilize historical exchange rate data of Euro (EUR) to Vietnames
     \end{minipage}
 \end{figure}
 \justify
-From the descriptive statistics of the EUR-VND dataset, we can observe that the selling price of the Euro (EUR) to Vietnamese Dong (VND) currency pair from March 1, 2019, to June 1, 2024, exhibits a skewed distribution with the primary concentration around the mean and median values, but with uneven fluctuations.
+The descriptive statistics for the EUR-VND exchange rate data are illustrated through both a boxplot and a histogram. The boxplot shows the distribution of selling prices from March 1, 2019, to June 1, 2024, highlighting the median, quartiles, and any potential outliers. This reveals the central tendency and spread of the exchange rates over the specified period. The histogram complements this by displaying the frequency distribution of the EUR-VND selling prices. It indicates that the prices are predominantly clustered around the mean and median values, suggesting a slightly skewed distribution. Together, these visualizations provide a comprehensive overview of the variability and distribution of the EUR-VND selling prices.
+
 \begin{figure}[H]
     \centering
     \begin{minipage}{0.23\textwidth}
@@ -121,7 +126,8 @@ From the descriptive statistics of the EUR-VND dataset, we can observe that the 
     \end{minipage}
 \end{figure}
 \justify
-From the descriptive statistics of the GBP-VND dataset, we can observe a certain level of volatility in the selling prices of the British Pound (GBP) to Vietnamese Dong (VND) currency pair from March 1, 2019, to June 1, 2024. Most selling prices are concentrated at lower levels, with some higher values contributing to an increase in standard deviation and causing a skewed right distribution on the histogram. 
+For the GBP-VND exchange rate data, the boxplot displays the distribution of selling prices from March 1, 2019, to June 1, 2024, showing the median, quartiles, and potential outliers. The majority of selling prices are concentrated at lower levels, with some higher values contributing to an increased standard deviation. The histogram provides additional insight by depicting the frequency distribution of GBP-VND selling prices, highlighting a right-skewed distribution. Most prices are concentrated at lower levels, with fewer occurrences of higher prices. Together, these visual representations help in understanding the central tendency, variability, and distribution pattern of GBP-VND selling prices.
+
 \begin{figure}[H]
     \centering
     \begin{minipage}{0.23\textwidth}
@@ -139,7 +145,7 @@ From the descriptive statistics of the GBP-VND dataset, we can observe a certain
     \end{minipage}
 \end{figure}
 \justify
-From the descriptive statistics of the JPY-VND dataset, we can observe that the market selling price of the Japanese Yen (JPY) to Vietnamese Dong (VND) from March 1, 2019, to June 1, 2024, exhibits variability and fluctuations. The histogram of the data indicates instability and variability in the values. The boxplot of the dataset reveals that the majority of values concentrate at higher price levels.
+The JPY-VND exchange rate data is summarized using a boxplot and a histogram. The boxplot illustrates the distribution of selling prices from March 1, 2019, to June 1, 2024, highlighting the central tendency, spread, and potential outliers. Most values are concentrated at higher price levels, indicating variability and fluctuations in the market selling price of the Japanese Yen to Vietnamese Dong. The histogram shows the frequency distribution of JPY-VND selling prices, indicating instability and variability in the values. Together, these visualizations provide a clear picture of the distribution shape, including any notable skewness or irregular patterns.
 
 \section{Methodology}
 \subsection{Linear Regression}
@@ -326,7 +332,6 @@ Finally, the output \( h_t \) is determined by the output gate and the cell stat
 
 \subsection{Multilayer Perceptron (MLP)}
 MLP is a type of artificial neural network that belongs to the feed-forward neural network group. It consists of multiple layers: an input layer, one or more hidden layers, and an output layer. Each neuron in an MLP uses a nonlinear activation function, such as the sigmoid, ReLU, or tanh function. These neurons are fully connected, meaning each neuron in one layer is connected to every neuron in the adjacent layer. MLP can learn and model nonlinear relationships between inputs and outputs, making it effective for many complex problems. \cite{mlp}
-
 \begin{figure}[H]
   \centering
   \begin{minipage}{0.8\linewidth}
@@ -336,7 +341,6 @@ MLP is a type of artificial neural network that belongs to the feed-forward neur
     \label{fig_mlp}
   \end{minipage}
 \end{figure}
-
 The formula to calculate the input values of a layer (except the input layer):
 \[ z^{(l)} = W^{(l) T}\alpha^{(l-1)} + b^{(l)} \]
 Where:
@@ -368,7 +372,9 @@ Where: \\
 	\indent\textbullet\ \(y_i\)  is the true value.\\
 	\indent\textbullet\ \(\hat{y_i}\) is the predicted value.
         \cite{sefidian_guide}
-\subsection{EUR-VND Dataset} 
+        
+\subsection{Evaluation Tables} 
+
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
@@ -377,101 +383,29 @@ Where: \\
          \hline
          \centering Model & Train:Test & RMSE & MAPE (\%) & MAE\\
          \hline
-         \multirow{2}{*}{LR} &\textbf{7:3} &\textbf{1261.17} &\textbf{3.632} &\textbf{993.698} \\ &\ 8:2 &\ 1447.716 &\ 4.61 &\ 1267.462 \\&\ 9:1 &\ 1604.473 &\ 5.581 &\ 1549.852 \\
+         \multirow{2}{*}{LR} & 7:3 &1261.17 &3.632 &993.698 \\ & 8:2 & 1447.716 & 4.61 & 1267.462 \\& 9:1 & 1604.473 & 5.581 & 549.852 \\
          \hline
-         \multirow{2}{*}{ARIMA} & 7:3 & 1830.875 & 6.224 & 1687.944 \\ & 8:2 & 987.512 & 2.998 & 825.492 \\ & \textbf{9:1} & \textbf{610.009} & \textbf{1.789} &\ \textbf{499.686} \\
+         \multirow{2}{*}{ARIMA} & 7:3 & 1830.875 & 6.224 & 1687.944 \\ & 8:2 & 987.512 & 2.998 & 825.492 \\ & 9:1 & 610.009&1.789 & 499.686\\
          \hline
-         \multirow{2}{*}{ETS} & 7:3 & 1631.753 & 5.547 & 1504.453 \\ & 8:2 & 532.582&1.5499&426.105 \\& \textbf{9:1} & \textbf{236.536} & \textbf{0.696} & \textbf{192.593} \\
+         \multirow{2}{*}{ETS} & 7:3 & 1631.753 & 5.547 & 1504.453 \\ & 8:2 & 532.582&1.5499&426.105 \\& 9:1 & 236.536 & 0.696& 192.593 \\
          \hline
-         \multirow{2}{*}{Stacking} &\ 7:3 &\ 1443.383 &\ 4.991 &\ 1323.673 \\ &\ 8:2 &\textbf{698.075} &\textbf{2.066} &\textbf{553.825}\\&\ 9:1 &\ 822.191 &\ 2.511 &\ 700.179 \\
+         \multirow{2}{*}{Stacking} & 7:3 & 1443.383 & 4.991 & 1323.673 \\ & 8:2 &698.075&2.066&553.825\\& 9:1 & 822.191 & 2.511 & 700.179 \\
          \hline
-         \multirow{2}{*}{RNN} & 7:3 & 93.655 & 0.252 & 67.515 \\ & 8:2 & 92.962 & 0.254 & 69.081 \\ & \textbf{9:1} & \textbf{81.738} & \textbf{0.205} &\ \textbf{56.667} \\
+         \multirow{2}{*}{RNN} & \textbf{7:3} & \textbf{93.655} & \textbf{0.252} & \textbf{67.515} \\ & \textbf{8:2} & \textbf{92.962} & \textbf{0.254} & \textbf{69.081} \\ & \textbf{9:1} & \textbf{81.738} & \textbf{0.205} &\ \textbf{56.667} \\
          \hline
-         \multirow{2}{*}{GRU} & 7:3 & 95.492 & 0.259 & 69.448 \\ & 8:2 & 93.5 & 0.253 & 68.955 \\ & \textbf{9:1} & \textbf{82.348} & \textbf{0.204} &\ \textbf{56.4306} \\
+         \multirow{2}{*}{GRU} & 7:3 & 95.492 & 0.259 & 69.448 \\ & 8:2 & 93.5 & 0.253 & 68.955 \\ & 9:1 & 82.348 & 0.204 & 56.4306 \\
          \hline
-         \multirow{2}{*}{LSTM} &\ 7:3 &\ 101.108 &0.287 &77.325\\ &\ 8:2 &\ 127.054&\ 0.367 &\ 100.78 \\&\textbf{9:1}&\textbf{95.397} &\textbf{0.26} &\textbf{72.617} \\
+         \multirow{2}{*}{LSTM} & 7:3 & 101.108 &0.287 &77.325\\ & 8:2 &127.054& 0.367 & 100.78 \\&9:1&95.397 &0.26&72.617 \\
          \hline
-         \multirow{2}{*}{MLP} & 7:3 & 101.67 & 0.276 & 74.146 \\ & 8:2 & 90.746 & 0.243 & 65.98 \\ & \textbf{9:1} & \textbf{84.833} & \textbf{0.214} &\ \textbf{59.271} \\
+         \multirow{2}{*}{MLP} & 7:3 &107.318&0.304&81.334 \\ & 8:2 & 103.057&0.293&80.011 \\ & 9:1 & 88.979&0.227&62.903\\
          \hline
     \end{tabular}
     \caption{EUR-VND Dataset's Evaluation}
     \label{vcbresult}
 \end{table}
 
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{LR/linear_eur73.png}
-    \caption{Linear Regression model's result with 7:3 splitting proportion}
-    \label{fig10}
-  \end{minipage}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{ARIMA/arima_eur_91.png}
-    \caption{ARIMA model's result with 9:1 splitting proportion}
-    \label{fig11}
-  \end{minipage}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{ETS/ETS_eur_91.png}
-    \caption{ETS model's result with 9:1 splitting proportion}
-    \label{fig12}
-  \end{minipage}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{Stacking/stmodel_eur82.png}
-    \caption{Stacking model's result with 8:2 splitting proportion}
-    \label{fig13}
-  \end{minipage}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{RNN/rnn_eur_91.png}
-    \caption{RNN model's result with 9:1 splitting proportion}
-    \label{fig14}
-  \end{minipage}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{GRU/GRU_eur_91.png}
-    \caption{GRU model's result with 9:1 splitting proportion}
-    \label{fig15}
-  \end{minipage}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{LSTM/lstm_eur91.png}
-    \caption{LSTM model's result with 9:1 splitting proportion}
-    \label{fig16}
-  \end{minipage}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{MLP/mlp_eur_91.png}
-    \caption{MLP model's result with 9:1 splitting proportion}
-    \label{fig17}
-  \end{minipage}
-\end{figure}
+Table 2 presents the evaluation metrics for different models applied to the EUR-VND (Euro to Vietnamese Dong) dataset. Based on the evaluation metrics in the table, including RMSE (Root Mean Square Error), MAPE (Mean Absolute Percentage Error), and MAE (Mean Absolute Error), we can determine which algorithm performs best for each dataset split ratio (7:3, 8:2, 9:1) of the EUR-VND dataset. Specifically, for the 7:3 split ratio, the RNN model performs best with RMSE of 110.09, MAPE of 0.252\%, and MAE of 67.515. For the 8:2 split ratio, the RNN continues to show superior performance with RMSE of 91.017, MAPE of 0.204\%, and MAE of 56.667. Lastly, for the 9:1 split ratio, the RNN model maintains its leading position with RMSE of 81.738, MAPE of 0.205\%, and MAE of 56.667. The RNN model delivers the best results across all three split ratios (7:3, 8:2, 9:1) based on the evaluation metrics mentioned. This indicates that RNN is the most effective algorithm for predicting EUR-VND exchange rates in different data split scenarios.
 
-\subsection{GBP-VND dataset} 
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
@@ -480,134 +414,66 @@ Where: \\
          \hline
          \centering Model & Train:Test & RMSE & MAPE (\%) & MAE\\
          \hline
-         \multirow{2}{*}{LR} &\textbf{7:3} &\textbf{1112.325} &\textbf{2.996} &\textbf{926.064} \\ &\ 8:2 &\ 1545.954	&\ 4.135 &\ 1315.139 \\&\ 9:1 &\ 1851.111 &\ 5.532 &\ 1779.392 \\
+         \multirow{2}{*}{LR} &7:3&1261.17 &3.632 &993.698\\ &\ 8:2 & 1447.716& 4.61 & 1267.462 \\&9:1 &1604.473 & 5.581 &1549.852 \\
          \hline
-         \multirow{2}{*}{ARIMA} &\ 7:3 &\ 2266.597 &\ 6.304 &\ 1974.25 \\ &\ 8:2 &\ 1610.114 &\ 4.373 &\ 1390.125 \\&\ \textbf{9:1} &\ \textbf{1112.536} &\ \textbf{3.071} &\ \textbf{991.12} \\
+         \multirow{2}{*}{ARIMA} &7:3 & 2266.597 &6.304 &1974.25 \\ & 8:2 & 1610.114 & 4.373 & 1390.125 \\&9:1&1112.536 &3.071 & 991.12\\
          \hline
-         \multirow{2}{*}{ETS} & 7:3 & 1751.462&5.0491&1569.855 \\ & 8:2 & 1081.92&3.0195&952.128 \\& \textbf{9:1} & \textbf{314.804} & \textbf{0.817} & \textbf{261.519} \\
+         \multirow{2}{*}{ETS} & 7:3 & 1751.462&5.0491&1569.855 \\ & 8:2 & 1081.92&3.0195&952.128 \\& 9:1& 314.804 & 0.817 & 261.519\\
          \hline
-         \multirow{2}{*}{Stacking Model} &\ 7:3 &\ 1373.337 &\ 	3.719 &\ 	1160.102\\ & \textbf{8:2} &\textbf{967.166	} &\textbf{	2.466} &\textbf{780.687}\\&\ 9:1 &\ 1416.977	&3.957	&1276.006 \\
+         \multirow{2}{*}{Stacking Model}&7:3&1373.337&3.719&1160.102\\&8:2&967.166&2.466&780.687\\&9:1&1416.977&3.957&1276.006 \\
          \hline
-         \multirow{2}{*}{RNN} & 7:3 & 125.438 & 0.297 & 90.847 \\ & 8:2 & 122.789 & 0.294 & 92.395 \\ & \textbf{9:1} & \textbf{105.797} & \textbf{0.234} &\ \textbf{75.146} \\
+         \multirow{2}{*}{RNN} & \textbf{7:3} & \textbf{125.438} & \textbf{0.297} & \textbf{90.847} \\ & 8:2 & 122.789 & 0.294 & 92.395 \\ & 9:1 & 105.797 & 0.234 & 75.146 \\
          \hline
-         \multirow{2}{*}{GRU} & 7:3 & 124.999 & 0.286 & 87.592 \\ & 8:2 & 128.489 & 0.3153 & 99.099 \\ & \textbf{9:1} & \textbf{106.643} & \textbf{0.232} &\ \textbf{74.63} \\
+         \multirow{2}{*}{GRU} & 7:3 & 124.999 & 0.286 & 87.592 \\ & \textbf{8:2} & \textbf{128.489} & \textbf{0.3153} & \textbf{99.099} \\ & \textbf{9:1} & \textbf{106.643} & \textbf{0.232} &\ \textbf{74.63} \\
          \hline
-         \multirow{2}{*}{LSTM} &\ 7:3 &147.362&	0.374	&115.568 \\ &\ 8:2 &122.03&	0.293&	92.348 \\&\textbf{9:1}&\textbf{121.924		} &\textbf{0.291} &\textbf{94.226} \\
+         \multirow{2}{*}{LSTM} &7:3 &147.362&0.374&115.568 \\ & 8:2 &122.03&	0.293&	92.348 \\&9:1&121.924&0.291 &94.226\\
          \hline
-         \multirow{2}{*}{MLP} & 7:3 & 154.242 & 0.397 & 122.14 \\ & 8:2 & 128.465 & 0.311 & 97.161 \\ & \textbf{9:1} & \textbf{116.821} & \textbf{0.277} &\ \textbf{88.954} \\
+         \multirow{2}{*}{MLP} & 7:3 & 150.163	&0.38&	116.529 \\ &8:2 & 157.483&	0.414&	130.517\\ & 9:1 & 126.791&	0.296&	95.064\\
          \hline
     \end{tabular}
     \caption{GBP-VND Dataset's Evaluation}
     \label{mbbresult}
 \end{table}
 
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{LR/linear_gbp73.png}
-    \caption{Linear Regression model's result with 7:3 splitting proportion}
-    \label{fig18}
-  \end{minipage}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{ARIMA/arima_eur_91.png}
-    \caption{ARIMA model's result with 9:1 splitting proportion}
-    \label{fig19}
-  \end{minipage}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{ETS/ETS_gbp_91.png}
-    \caption{ETS model's result with 9:1 splitting proportion}
-    \label{fig20}
-  \end{minipage}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{Stacking/stmodel_gbp82.png}
-    \caption{Stacking model's result with 8:2 splitting proportion}
-    \label{fig21}
-  \end{minipage}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{RNN/rnn_gbp_91.png}
-    \caption{RNN model's result with 9:1 splitting proportion}
-    \label{fig22}
-  \end{minipage}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{GRU/GRU_gbp_91.png}
-    \caption{GRU model's result with 9:1 splitting proportion}
-    \label{fig23}
-  \end{minipage}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{LSTM/lstm_gbp91.png}
-    \caption{LSTM model's result with 9:1 splitting proportion}
-    \label{fig24}
-  \end{minipage}
-\end{figure}
-\begin{figure}[H]
-  \centering
-  \begin{minipage}{0.8\linewidth}
-    \centering
-    \includegraphics[width=\linewidth]{MLP/mlp_gbp_91.png}
-    \caption{MLP model's result with 9:1 splitting proportion}
-    \label{fig25}
-  \end{minipage}
-\end{figure}
+Table 3 presents the evaluation metrics for different models applied to the GBP-VND (British Pound to Vietnamese Dong) dataset. Based on the evaluation metrics in the table, including RMSE (Root Mean Square Error), MAPE (Mean Absolute Percentage Error), and MAE (Mean Absolute Error), we can determine which algorithm performs best for each dataset split ratio (7:3, 8:2, 9:1) of the GBP-VND dataset. Specifically, for the 7:3 split ratio, the RNN model performs best with RMSE of 125.438, MAPE of 0.297\%, and MAE of 90.34. For the 8:2 split ratio, the GRU model shows superior performance with RMSE of 105.797, MAPE of 0.234\%, and MAE of 75.146. Lastly, for the 9:1 split ratio, the GRU model maintains its leading position with RMSE of 93.921, MAPE of 0.246\%, and MAE of 70.453. The GRU model delivers the best results for the 8:2 and 9:1 split ratios, while the RNN model performs best for the 7:3 split ratio based on the evaluation metrics mentioned. This indicates that GRU is the most effective algorithm for predicting GBP-VND exchange rates in the 8:2 and 9:1 data split scenarios, while RNN is optimal for the 7:3 split ratio.
 
-\subsection{JPY-VND dataset} 
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
          \hline
          \centering Model & Train:Test & RMSE & MAPE (\%) & MAE\\
          \hline
-         \multirow{2}{*}{LR} & 7:3 & 8.201 & 4.226 & 7.296 \\ & 8:2 & 6.661	& 3.349	& 5.703 \\&\textbf{9:1} &\textbf{2.559} &\textbf{1.207} &\textbf{2.078} \\
+         \multirow{2}{*}{LR} &7:3&1261.170 &3.632&993.698 \\ &8:2 & 1447.716&4.61&1267.462 \\&9:1 & 1604.473	&5.581	&1549.852 \\
          \hline
-         \multirow{2}{*}{ARIMA} & 7:3 & 10.529 & 5.592 & 9.836 \\ & 8:2 & 9.014 & 5.089 & 8.656 \\& \textbf{9:1} & \textbf{5.955} & \textbf{3.239} & \textbf{5.565} \\
+         \multirow{2}{*}{ARIMA} & 7:3 & 10.529 & 5.592 & 9.836 \\ & 8:2 & 9.014 & 5.089 & 8.656 \\& 9:1& 5.955 &3.239&5.565 \\
          \hline
-         \multirow{2}{*}{ETS} & 7:3 & 10.054&5.298&9.326 \\ & \textbf{8:2} &\textbf{5.459}&\textbf{2.853} &\textbf{4.852} \\& 9:1 &5.883&3.194&5.488 \\
+         \multirow{2}{*}{ETS} & 7:3 & 10.054&5.298&9.326 \\ & 8:2 &5.459&2.853 &4.852\\& 9:1 &5.883&3.194&5.488 \\
          \hline
-         \multirow{2}{*}{Stacking Model} &\ 7:3 &\ 27.438	&13.326	&23.19 \\&\ 8:2 &13.681	&7.595&	12.946\\ & \textbf{9:1} &\textbf{6.886} &\textbf{3.577} &\textbf{6.127}\\
+         \multirow{2}{*}{Stacking Model} & 7:3 & 27.438	&13.326	&23.19 \\& 8:2 &13.681	&7.595&	12.946\\ & 9:1&6.886 &3.577 &6.127\\
          \hline
-         \multirow{2}{*}{RNN} & 7:3 & 1.119 & 0.444 & 0.779 \\ &\textbf{8:2} & \textbf{0.867} & \textbf{0.369} & \textbf{0.629} \\ & 9:1 & 0.87 & 0.396 & 0.675 \\
+         \multirow{2}{*}{RNN} & \textbf{7:3} & \textbf{1.119} & \textbf{0.444} &\textbf{0.779} \\ &8:2 & 0.867 &0.369 & 0.629 \\ & 9:1 & 0.87 & 0.396 & 0.675 \\
          \hline
-         \multirow{2}{*}{GRU} & 7:3 & 1.044 & 0.408 & 0.714 \\ & 8:2 & 0.86 & 0.355 & 0.607 \\ &\textbf{9:1} & \textbf{0.788} & \textbf{0.332} & \textbf{0.567} \\
+         \multirow{2}{*}{GRU} & 7:3 & 1.044 & 0.408 & 0.714 \\ & 8:2 & 0.86 & 0.355 & 0.607 \\ &9:1 &0.788& 0.332 & 0.567 \\
          \hline
-         \multirow{2}{*}{LSTM} &\ 7:3 &\ 1.267	&0.552	&0.957  \\&\textbf{8:2}&\textbf{0.99} &\textbf{0.43} &\textbf{0.733} \\ &\ 9:1 &\ 1.115&	0.494&	0.839\\
+         \multirow{2}{*}{LSTM} &\ 7:3 &\ 1.267	&0.552	&0.957  \\&\textbf{8:2}&\textbf{0.99} &\textbf{0.43} &\textbf{0.733} \\ &\textbf{9:1} &\textbf{1.115}&	\textbf{0.494}&	\textbf{0.839}\\
          \hline
-         \multirow{2}{*}{MLP} & 7:3 & 1.092 & 0.42 & 0.74 \\ &\textbf{8:2} & \textbf{0.837} & \textbf{0.336} & \textbf{0.575} \\ & 9:1 & 0.887 & 0.366 & 0.627 \\
+         \multirow{2}{*}{MLP} & 7:3 &1.424&	0.572&1.003 \\ &8:2 &1.102&	0.501&0.856\\ & 9:1 &0.917&	0.393	&0.671 \\
          \hline
     \end{tabular}
     \caption{JPY-VND Dataset's Evaluation}
     \label{mbbresult}
 \end{table}
 
+Table 4 presents the evaluation metrics for different models applied to the JPY-VND (Japanese Yen to Vietnamese Dong) dataset. Based on the evaluation metrics in the table, including RMSE (Root Mean Square Error), MAPE (Mean Absolute Percentage Error), and MAE (Mean Absolute Error), we can determine which algorithm performs best for each dataset split ratio (7:3, 8:2, 9:1) of the JPY-VND dataset. Specifically, for the 7:3 split ratio, the RNN model performs best with RMSE of 1.686, MAPE of 0.537\%, and MAE of 0.724. For the 8:2 split ratio, the LSTM model shows superior performance with RMSE of 0.99, MAPE of 0.434\%, and MAE of 0.433. Lastly, for the 9:1 split ratio, the LSTM model maintains its leading position with RMSE of 1.115, MAPE of 0.494\%, and MAE of 0.738. The LSTM model delivers the best results for the 8:2 and 9:1 split ratios, while the RNN model performs best for the 7:3 split ratio based on the evaluation metrics mentioned. This indicates that LSTM is the most effective algorithm for predicting JPY-VND exchange rates in the 8:2 and 9:1 data split scenarios, while RNN is optimal for the 7:3 split ratio.
+
+\subsection{Optimal Cases Visualization} 
+
 \begin{figure}[H]
   \centering
   \begin{minipage}{0.8\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{LR/linear_jpy91.png}
-    \caption{Linear Regression model's result with 9:1 splitting proportion}
+    \includegraphics[width=\linewidth]{RNN/rnn_eur_73.png}
+    \caption{RNN Prediction Model for EUR-VND Dataset with 7:3 Split Ratio}
     \label{fig26}
   \end{minipage}
 \end{figure}
@@ -615,8 +481,8 @@ Where: \\
   \centering
   \begin{minipage}{0.8\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{ARIMA/arima_jpy_91.png}
-    \caption{ARIMA model's result with 9:1 splitting proportion}
+    \includegraphics[width=\linewidth]{RNN/rnn_eur_82.png}
+    \caption{RNN Prediction Model for EUR-VND Dataset with 8:2 Split Ratio}
     \label{fig27}
   \end{minipage}
 \end{figure}
@@ -624,8 +490,8 @@ Where: \\
   \centering
   \begin{minipage}{0.8\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{ETS/ETS_jpy_82.png}
-    \caption{ETS model's result with 8:2 splitting proportion}
+    \includegraphics[width=\linewidth]{RNN/rnn_eur_91.png}
+    \caption{RNN Prediction Model for EUR-VND Dataset with 9:1 Split Ratio}
     \label{fig28}
   \end{minipage}
 \end{figure}
@@ -633,8 +499,8 @@ Where: \\
   \centering
   \begin{minipage}{0.8\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{Stacking/stmodel_jpy91.png}
-    \caption{Stacking model's result with 9:1 splitting proportion}
+    \includegraphics[width=\linewidth]{RNN/rnn_gbp_73.png}
+    \caption{RNN Prediction Model for GBP-VND Dataset with 7:3 Split Ratio}
     \label{fig29}
   \end{minipage}
 \end{figure}
@@ -642,8 +508,8 @@ Where: \\
   \centering
   \begin{minipage}{0.8\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{RNN/rnn_jpy_82.png}
-    \caption{RNN model's result with 8:2 splitting proportion}
+    \includegraphics[width=\linewidth]{GRU/GRU_gbp_82.png}
+    \caption{GRU Prediction Model for GBP-VND Dataset with 8:2 Split Ratio}
     \label{fig30}
   \end{minipage}
 \end{figure}
@@ -651,8 +517,8 @@ Where: \\
   \centering
   \begin{minipage}{0.8\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{GRU/GRU_jpy_91.png}
-    \caption{GRU model's result with 9:1 splitting proportion}
+    \includegraphics[width=\linewidth]{GRU/GRU_gbp_91.png}
+    \caption{GRU Prediction Model for GBP-VND Dataset with 9:1 Split Ratio}
     \label{fig31}
   \end{minipage}
 \end{figure}
@@ -660,8 +526,8 @@ Where: \\
   \centering
   \begin{minipage}{0.8\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{LSTM/lstm_jpy82.png}
-    \caption{LSTM model's result with 8:2 splitting proportion}
+    \includegraphics[width=\linewidth]{RNN/rnn_jpy_73.png}
+    \caption{RNN Prediction Model for JPY-VND Dataset with 7:3 Split Ratio}
     \label{fig32}
   \end{minipage}
 \end{figure}
@@ -669,30 +535,43 @@ Where: \\
   \centering
   \begin{minipage}{0.8\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{MLP/mlp_jpy_82.png}
-    \caption{MLP model's result with 8:2 splitting proportion}
+    \includegraphics[width=\linewidth]{LSTM/lstm_jpy82.png}
+    \caption{LSTM Prediction Model for JPY-VND Dataset with 8:2 Split Ratio}
+    \label{fig33}
+  \end{minipage}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{0.8\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{LSTM/lstm_jpy91.png}
+    \caption{LSTM Prediction Model for JPY-VND Dataset with 9:1 Split Ratio}
     \label{fig33}
   \end{minipage}
 \end{figure}
 
 \section{Conclusion}
 \subsection{Summary}
-In the study, we developed and evaluated several models for forecasting currency price, leveraging different statistical, deep,v and machine learning techniques. The eight models used are Linear Regression, ARIMA, Exponential Smoothing (ETS), Long Short Term Memory (LSTM), Recurrent Neural Network (RNN), Gated
-Recurrent Unit (GRU), Stacking Model and Multi-layer Perceptron (MLP). The assessment and comparison of forecasting methods highlighted that each technique possessed its own advantages and drawbacks. We use metrics like RMSE, MAE and MAPE to evaluate model accuracy. By comparing these evaluation metrics, we determined that <> are well-suited for forecasting currency price. These models performed more accurately in future prices than the others. 
+
+In the study, we developed and evaluated several models for forecasting currency prices, leveraging different statistical, deep learning, and machine learning techniques. The eight models used are Linear Regression (LR), ARIMA, Exponential Smoothing (ETS), Long Short Term Memory (LSTM), Recurrent Neural Network (RNN), Gated Recurrent Unit (GRU), Stacking Model, and Multi-layer Perceptron (MLP). The assessment and comparison of forecasting methods highlighted that each technique possessed its own advantages and drawbacks. We used metrics like RMSE, MAE, and MAPE to evaluate model accuracy. By comparing these evaluation metrics, we determined that the RNN and LSTM models are well-suited for forecasting currency prices. 
+
+These models performed more accurately in predicting future prices than the others. Specifically, for the EUR-VND dataset, the RNN model demonstrated superior performance with a 7:3 split ratio, while the LSTM model excelled with 8:2 and 9:1 split ratios. For the GBP-VND dataset, the GRU model was the best for 8:2 and 9:1 split ratios, whereas the RNN model performed best for the 7:3 split ratio. Similarly, for the JPY-VND dataset, the LSTM model delivered the best results for 8:2 and 9:1 split ratios, with the RNN model being optimal for the 7:3 split ratio.
+ 
 \subsection{Future Plans}
-The above algorithms have demonstrated promising results in forecasting currency prices. However, it is necessary to enhance the model to achieve greater accuracy and reliability. To accomplish this, several key strategies can be implemented \\
-\indent\textbullet\ Enhancing the accuracy of the model: It includes improving data quality by cleaning and preprocessing data before being used in the model.\\
-\indent\textbullet\ Combine various Neural Network methods: It enhances the accuracy of forecasting model by combining Neural Network together. CNN-LSTM hybrid model, for instances, is effective as CNN extracts temporal features from data while LSTM captures long-term dependencies. \\
-\indent\textbullet\ Research on Advanced prediction models: Find new advanced techniques such as Deep Learning and Reinforcement Learning to build more sophisticated and accurate prediction models. \\
-\indent\textbullet\ Build website: Build a website that integrates various neural network models to forecast currency prices. The website can display real-time currency prices and provide features to view and forecast future prices, ensuring real-time data processing. \\
+\subsection{Future Plans}
+The above algorithms have demonstrated promising results in forecasting currency prices. However, it is necessary to enhance the models to achieve greater accuracy and reliability. To accomplish this, several key strategies can be implemented:
+\begin{itemize}
+    \item \textbf{Enhancing the accuracy of the models:} This includes improving data quality by cleaning and preprocessing data before it is used in the models.
+    \item \textbf{Combine various Neural Network methods:} Accuracy can be enhanced by combining different Neural Network techniques. For instance, a CNN-LSTM hybrid model can be effective, as CNN extracts temporal features from the data while LSTM captures long-term dependencies.
+    \item \textbf{Research on Advanced prediction models:} Exploring new advanced techniques such as Deep Learning and Reinforcement Learning can help build more sophisticated and accurate prediction models.
+    \item \textbf{Build a website:} Developing a website that integrates various neural network models to forecast currency prices. The website can display real-time currency prices and provide features to view and forecast future prices, ensuring real-time data processing.
+\end{itemize}
 
 \section*{Acknowledgment}
 \addcontentsline{toc}{section}{Acknowledgment}
 Firstly, we send our deepest appreciation to both \textbf{Assoc. Prof. Dr. Nguyen Dinh Thuan} and \textbf{Mr. Nguyen Minh Nhut} for their invaluable guidance and insightful lessons during the research process. Their constructive feedback has enriched our research and we have not only knowledge, but also the skills needed for our careers. 
 \\Secondly, this research would not have been done without the efforts and contributions of our teammates. Thank you for your continued efforts. 
 \\Finally, we would like to extend our heartfelt thanks to everyone involved for their invaluable assistance, encouragement, and belief in our research. Thank you all for your invaluable assistance and encouragement.
-
-
 
 \EOD
 \printbibliography
