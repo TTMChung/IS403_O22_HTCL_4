@@ -152,7 +152,7 @@ Where:
 	\item $X_1, X_2, \ldots, X_k$ are the independent (explanatory) variables.
 	\item $\beta_0$ is the intercept term.
 	\item $\beta_1,..., \beta_k$ are the regression coefficients for the independent variables.
-	\item $\varepsilon$ is the error term.
+	\item $\varepsilon$ is the error term. \cite{linear}
  \end{itemize}
 
  \subsection{AutoRegressive Integrated Moving Average (ARIMA)}
@@ -207,19 +207,25 @@ There are three main methods to estimate exponential smoothing, which are: \\
     \end{itemize}
 
 \subsection{Stacking model} 
-The Stacking Model, also known as Ensemble Learning, is a machine learning technique that combines multiple machine learning models to create a more accurate predictive model.
-\begin{itemize}
-    \item Improved accuracy: The Stacking Model can help improve the accuracy of predictions by combining the strengths of multiple machine learning models.
-    \item Reduced overfitting: The Stacking Model can help reduce overfitting by using multiple different machine learning models to learn from the data.
-    \item Increased flexibility: The Stacking Model can be used with many different types of machine learning models, making it a versatile tool for different prediction tasks.
-\end{itemize}
-How the Stacking Model Works:
-\begin{itemize}
-    \item Train base models: First, you need to train several base machine learning models on the data. These models can be of any type, such as linear regression, decision trees, random forests, etc.
-    \item  Create metadata: After training the base models, you need to create metadata. Metadata is a new dataset that includes the predictions of the base models as input data.
-    \item Train meta model: Finally, you need to train a meta-model on the metadata. The meta-model will learn how to combine the predictions of the base models to.
-\end{itemize}
-The Stacking Model is a powerful machine-learning technique that can significantly improve the accuracy of predictive models. By combining the strengths of multiple different machine learning models, the Stacking Model offers a flexible and effective approach to solving complex prediction tasks.
+The Stacking Model, also known as Ensemble Learning, is a machine learning technique that combines multiple machine learning models to create a more accurate predictive model, flexible and effective approach to solving complex prediction tasks. In general, stacking ensemble learning consists of two phases: base models training phase and meta model training phase:\
+
+In the initial phase, the original data is first split into a training set and a testing set. The training set undergoes training using k-fold cross-validation. This method involves partitioning the training set into k subsets, using k minus one subsets for training the model, and predicting outcomes for the remaining subset.
+
+During the subsequent phase, predictions from the k-fold cross-validation of the base model are aggregated to reconstruct a new training dataset in the original order. The meta model's training set is formed by consolidating these reconstructed datasets from multiple base models. Similarly, predictions from the testing sets of the base models are combined to construct the testing set for the meta model. The meta model is then trained
+
+\begin{figure}[H]
+  \centering
+  \begin{minipage}{1.0\linewidth}
+    \centering
+    \includegraphics[width=\linewidth]{Figure_algorithm/stackingmodel.jpg}
+    \caption{Structure of the Stacking Model \cite{stack_fig}}
+  \end{minipage}
+\end{figure}
+
+In this report, two models XGBoost, Linear Regerssion  were selected as the base models. The meta-model was chosen as ordinary linear regression. Linear regression is a common choice in regression for the meta-learner
+
+\subsection{XGBoost (For Stacking Model)}
+Extreme Gradient Boosting (XGB) is an advanced supervised learning algorithm proposed by Chen and Guestrin. It is based on gradient-boosted decision trees and aims to create a strong learner by aggregating predictions from weak learners using additive training strategies. XGB builds upon gradient-boosted decision trees with a second-order Taylor expansion of the loss function and regularization to prevent overfitting and accelerate convergence. It continuously improves prediction accuracy by iteratively constructing new decision trees to fit residuals from previous predictions, minimizing the difference between predicted and actual values. Its speed advantage makes XGB a preferred choice as a base model for staking model in various studies.\cite{stacking}
 
 \subsection{Recurrent Neural Network (RNN)}
 RNN is a type of neural network model designed to handle sequential data. The distinctive feature of RNNs is their ability to maintain information across time steps, allowing them to utilize information from previous steps to influence the processing of the current step. This makes RNNs particularly useful in applications where the order of data is important, such as natural language processing (NLP), machine translation, and time series forecasting. \cite{zargar2021introduction}\\
@@ -283,14 +289,13 @@ Where:\\
     \end{itemize}\\
 
 \subsection{Long Short-Term Memory (LSTM)} 
-The LSTM (Long Short-Term Memory) model, a specialized form of Recurrent Neural Network (RNN), was introduced by Hochreiter and Schmidhuber in 1997 to tackle the issue of long-term dependencies. It consists of a chain-like structure with up to four interacting layers. Each LSTM includes a cell state and three gates: forget, input, and output. These gates are controlled by sigmoid layers.
+The LSTM (Long Short-Term Memory) model, a specialized form of Recurrent Neural Network (RNN), was introduced by Hochreiter and Schmidhuber in 1997 to tackle the issue of long-term dependencies. It consists of a chain-like structure with up to four interacting layers. Each LSTM includes a cell state and three gates: forget, input, and output. These gates are controlled by sigmoid layers.\cite{zargar2021introduction}
 \begin{figure}[H]
   \centering
   \begin{minipage}{0.8\linewidth}
     \centering
     \includegraphics[width=\linewidth]{Figure_algorithm/lstm (1).png}
-    \caption{Structure of the LSTM model \cite{mlp_image}}
-    \label{fig_mlp}
+    \caption{Structure of the LSTM model \cite{lstm_fig}}
   \end{minipage}
 \end{figure}
 The initial step of the LSTM model involves the forget gate layer, which decides what information to discard from the cell state. The formula for the forget gate is:
@@ -372,7 +377,7 @@ Where: \\
          \hline
          \centering Model & Train:Test & RMSE & MAPE (\%) & MAE\\
          \hline
-         \multirow{2}{*}{LR} &\textbf{7:3} &\textbf{1261.17} &\textbf{3.632} &\textbf{993.698} \\ &\ 8:2 &\ 1447.716 &\ 4.61 &\ 1267.462 \\&\ 9:1 &\ 1604.473 &\ 5.581 &\ 549.852 \\
+         \multirow{2}{*}{LR} &\textbf{7:3} &\textbf{1261.17} &\textbf{3.632} &\textbf{993.698} \\ &\ 8:2 &\ 1447.716 &\ 4.61 &\ 1267.462 \\&\ 9:1 &\ 1604.473 &\ 5.581 &\ 1549.852 \\
          \hline
          \multirow{2}{*}{ARIMA} & 7:3 & 1830.875 & 6.224 & 1687.944 \\ & 8:2 & 987.512 & 2.998 & 825.492 \\ & \textbf{9:1} & \textbf{610.009} & \textbf{1.789} &\ \textbf{499.686} \\
          \hline
@@ -475,7 +480,7 @@ Where: \\
          \hline
          \centering Model & Train:Test & RMSE & MAPE (\%) & MAE\\
          \hline
-         \multirow{2}{*}{LR} &\textbf{7:3} &\textbf{1261.17} &\textbf{3.632} &\textbf{993.698} \\ &\ 8:2 &\ 1447.716	&\ 4.61 &\ 1267.462 \\&\ 9:1 &\ 1604.473 &\ 5.581 &\ 1549.852 \\
+         \multirow{2}{*}{LR} &\textbf{7:3} &\textbf{1112.325} &\textbf{2.996} &\textbf{926.064} \\ &\ 8:2 &\ 1545.954	&\ 4.135 &\ 1315.139 \\&\ 9:1 &\ 1851.111 &\ 5.532 &\ 1779.392 \\
          \hline
          \multirow{2}{*}{ARIMA} &\ 7:3 &\ 2266.597 &\ 6.304 &\ 1974.25 \\ &\ 8:2 &\ 1610.114 &\ 4.373 &\ 1390.125 \\&\ \textbf{9:1} &\ \textbf{1112.536} &\ \textbf{3.071} &\ \textbf{991.12} \\
          \hline
@@ -576,7 +581,7 @@ Where: \\
          \hline
          \centering Model & Train:Test & RMSE & MAPE (\%) & MAE\\
          \hline
-         \multirow{2}{*}{LR} &\textbf{7:3} &\textbf{1261.170		} &\textbf{3.632} &\textbf{993.698} \\ &\ 8:2 &\ 1447.716	&4.61	&1267.462 \\&\ 9:1 &\ 1604.473	&5.581	&1549.852 \\
+         \multirow{2}{*}{LR} & 7:3 & 8.201 & 4.226 & 7.296 \\ & 8:2 & 6.661	& 3.349	& 5.703 \\&\textbf{9:1} &\textbf{2.559} &\textbf{1.207} &\textbf{2.078} \\
          \hline
          \multirow{2}{*}{ARIMA} & 7:3 & 10.529 & 5.592 & 9.836 \\ & 8:2 & 9.014 & 5.089 & 8.656 \\& \textbf{9:1} & \textbf{5.955} & \textbf{3.239} & \textbf{5.565} \\
          \hline
@@ -601,8 +606,8 @@ Where: \\
   \centering
   \begin{minipage}{0.8\linewidth}
     \centering
-    \includegraphics[width=\linewidth]{LR/linear_jpy73.png}
-    \caption{Linear Regression model's result with 7:3 splitting proportion}
+    \includegraphics[width=\linewidth]{LR/linear_jpy91.png}
+    \caption{Linear Regression model's result with 9:1 splitting proportion}
     \label{fig26}
   \end{minipage}
 \end{figure}
@@ -686,6 +691,8 @@ The above algorithms have demonstrated promising results in forecasting currency
 Firstly, we send our deepest appreciation to both \textbf{Assoc. Prof. Dr. Nguyen Dinh Thuan} and \textbf{Mr. Nguyen Minh Nhut} for their invaluable guidance and insightful lessons during the research process. Their constructive feedback has enriched our research and we have not only knowledge, but also the skills needed for our careers. 
 \\Secondly, this research would not have been done without the efforts and contributions of our teammates. Thank you for your continued efforts. 
 \\Finally, we would like to extend our heartfelt thanks to everyone involved for their invaluable assistance, encouragement, and belief in our research. Thank you all for your invaluable assistance and encouragement.
+
+
 
 \EOD
 \printbibliography
