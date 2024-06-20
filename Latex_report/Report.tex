@@ -32,7 +32,7 @@
 
 \begin{abstract}
 
-The rapid fluctuations in currency exchange rates pose significant challenges for investors and policymakers. This study aims to forecast currency prices using a range of statistical, machine learning, and deep learning algorithms. The models employed in this research include Linear Regression (LR), Autoregressive Integrated Moving Average (ARIMA), Exponential Smoothing State Space Model (ETS), Stacking Model, Multilayer Perceptron (MLP), Recurrent Neural Networks (RNN), Gated Recurrent Units (GRU), and Long Short-Term Memory (LSTM). Evaluation metrics such as Mean Absolute Percentage Error (MAPE), Root Mean Squared Error (RMSE), and Mean Absolute Error (MAE) are utilized to assess the performance of each forecasting model on various currency datasets, specifically EUR-VND, GBP-VND, and JPY-VND. The findings indicate that the RNN model performs best for the EUR-VND dataset with a 7:3 split ratio, while the LSTM model excels with 8:2 and 9:1 split ratios. For the GBP-VND dataset, the GRU model is the best for 8:2 and 9:1 split ratios, and the RNN model is optimal for the 7:3 split ratio. Similarly, for the JPY-VND dataset, the LSTM model delivers the best results for 8:2 and 9:1 split ratios, with the RNN model being optimal for the 7:3 split ratio. These results highlight the effectiveness of deep learning models, particularly RNN, GRU, and LSTM, in forecasting currency prices.
+The rapid fluctuations in currency exchange rates pose significant challenges for investors and policymakers. This study aims to forecast currency prices using a range of statistical, machine learning, and deep learning algorithms. The models employed in this research include Linear Regression (LR), Autoregressive Integrated Moving Average (ARIMA), Exponential Smoothing State Space Model (ETS), Stacking Model, Multilayer Perceptron (MLP), Recurrent Neural Networks (RNN), Gated Recurrent Units (GRU), and Long Short-Term Memory (LSTM). Evaluation metrics such as Mean Absolute Percentage Error (MAPE), Root Mean Squared Error (RMSE), and Mean Absolute Error (MAE) are utilized to assess the performance of each forecasting model on various currency datasets, specifically EUR-VND, GBP-VND, and JPY-VND. The findings indicate that the RNN model performs best for the EUR-VND dataset across all three split ratios (7:3, 8:2, 9:1). For the GBP-VND dataset, the GRU model excels with a 7:3 split ratio, while the RNN model is optimal for the 8:2 and 9:1 split ratios. For the JPY-VND dataset, the GRU model consistently delivers the best results across all split ratios. These results highlight the effectiveness of deep learning models, particularly RNN and GRU, in forecasting currency prices and provide insights for future research and practical applications in this domain.
 \end{abstract}
 
 \begin{keywords}
@@ -228,9 +228,12 @@ During the subsequent phase, predictions from the k-fold cross-validation of the
   \end{minipage}
 \end{figure}
 
-In this report, two models XGBoost, Linear Regerssion  were selected as the base models. The meta-model was chosen as ordinary linear regression. Linear regression is a common choice in regression for the meta-learner
+In this report, two models XGBoost, Linear Regerssion  were selected as the base models. The meta-model was chosen as ordinary linear regression. Linear regression is a common choice in regression for the meta-learner.
 
-\subsection{XGBoost (For Stacking Model)}
+\begin{itemize}
+    \item[*] \textbf{XGBoost (For Stacking Model)}
+\end{itemize} 
+
 Extreme Gradient Boosting (XGB) is an advanced supervised learning algorithm proposed by Chen and Guestrin. It is based on gradient-boosted decision trees and aims to create a strong learner by aggregating predictions from weak learners using additive training strategies. XGB builds upon gradient-boosted decision trees with a second-order Taylor expansion of the loss function and regularization to prevent overfitting and accelerate convergence. It continuously improves prediction accuracy by iteratively constructing new decision trees to fit residuals from previous predictions, minimizing the difference between predicted and actual values. Its speed advantage makes XGB a preferred choice as a base model for staking model in various studies.\cite{stacking}
 
 \subsection{Recurrent Neural Network (RNN)}
@@ -391,20 +394,21 @@ Where: \\
          \hline
          \multirow{2}{*}{Stacking} & 7:3 & 1443.383 & 4.991 & 1323.673 \\ & 8:2 &698.075&2.066&553.825\\& 9:1 & 822.191 & 2.511 & 700.179 \\
          \hline
-         \multirow{2}{*}{RNN} & \textbf{7:3} & \textbf{93.655} & \textbf{0.252} & \textbf{67.515} \\ & \textbf{8:2} & \textbf{92.962} & \textbf{0.254} & \textbf{69.081} \\ & \textbf{9:1} & \textbf{81.738} & \textbf{0.205} &\ \textbf{56.667} \\
+         \multirow{2}{*}{RNN} & \textbf{7:3} & \textbf{93.655} & \textbf{0.252} & \textbf{67.515} \\ & \textbf{8:2} & \textbf{92.962} & \textbf{0.254} & \textbf{69.081} \\ & \textbf{9:1} & \textbf{81.738} & \textbf{0.205} &\textbf{56.667} \\
          \hline
-         \multirow{2}{*}{GRU} & 7:3 & 95.492 & 0.259 & 69.448 \\ & 8:2 & 93.5 & 0.253 & 68.955 \\ & 9:1 & 82.348 & 0.204 & 56.4306 \\
+         \multirow{2}{*}{GRU} & 7:3 & 95.492 & 0.259 & 69.448 \\ & 8:2 & 93.5& 0.253 & 68.955\\ & 9:1 & 82.348& 0.204 & 56.431 \\
          \hline
-         \multirow{2}{*}{LSTM} & 7:3 & 101.108 &0.287 &77.325\\ & 8:2 &127.054& 0.367 & 100.78 \\&9:1&95.397 &0.26&72.617 \\
+         \multirow{2}{*}{LSTM} & 7:3 & 100.891 &0.279& 74.651\\ & 8:2 &119.588 &0.337 &91.765
+\\&9:1&88.418& 0.227& 62.928 \\
          \hline
-         \multirow{2}{*}{MLP} & 7:3 &107.318&0.304&81.334 \\ & 8:2 & 103.057&0.293&80.011 \\ & 9:1 & 88.979&0.227&62.903\\
+         \multirow{2}{*}{MLP} & 7:3 &109.437& 0.308& 82.583 \\ & 8:2 & 103.594 &0.288 &78.281 \\ & 9:1 & 119.307& 0.355& 98.533\\
          \hline
     \end{tabular}
     \caption{EUR-VND Dataset's Evaluation}
     \label{vcbresult}
 \end{table}
 
-Table 2 presents the evaluation metrics for different models applied to the EUR-VND (Euro to Vietnamese Dong) dataset. Based on the evaluation metrics in the table, including RMSE (Root Mean Square Error), MAPE (Mean Absolute Percentage Error), and MAE (Mean Absolute Error), we can determine which algorithm performs best for each dataset split ratio (7:3, 8:2, 9:1) of the EUR-VND dataset. Specifically, for the 7:3 split ratio, the RNN model performs best with RMSE of 110.09, MAPE of 0.252\%, and MAE of 67.515. For the 8:2 split ratio, the RNN continues to show superior performance with RMSE of 91.017, MAPE of 0.204\%, and MAE of 56.667. Lastly, for the 9:1 split ratio, the RNN model maintains its leading position with RMSE of 81.738, MAPE of 0.205\%, and MAE of 56.667. The RNN model delivers the best results across all three split ratios (7:3, 8:2, 9:1) based on the evaluation metrics mentioned. This indicates that RNN is the most effective algorithm for predicting EUR-VND exchange rates in different data split scenarios.
+Table 2 presents the evaluation metrics for different models applied to the EUR-VND (Euro to Vietnamese Dong) dataset. Based on the evaluation metrics in the table, including RMSE (Root Mean Square Error), MAPE (Mean Absolute Percentage Error), and MAE (Mean Absolute Error), we can determine which algorithm performs best for each dataset split ratio (7:3, 8:2, 9:1) of the EUR-VND dataset. Specifically, for the 7:3 split ratio, the RNN model performs best with an RMSE of 93.655, MAPE of 0.252\%, and MAE of 67.515. For the 8:2 split ratio, the RNN continues to show superior performance with an RMSE of 92.962, MAPE of 0.254\%, and MAE of 69.081. Lastly, for the 9:1 split ratio, the RNN model maintains its leading position with an RMSE of 81.738, MAPE of 0.205\%, and MAE of 56.667. The RNN model delivers the best results across all three split ratios (7:3, 8:2, 9:1) based on the evaluation metrics mentioned. This indicates that RNN is the most effective algorithm for predicting EUR-VND exchange rates in different data split scenarios.
 
 \begin{table}[H]
     \centering
@@ -422,20 +426,20 @@ Table 2 presents the evaluation metrics for different models applied to the EUR-
          \hline
          \multirow{2}{*}{Stacking Model}&7:3&1373.337&3.719&1160.102\\&8:2&967.166&2.466&780.687\\&9:1&1416.977&3.957&1276.006 \\
          \hline
-         \multirow{2}{*}{RNN} & \textbf{7:3} & \textbf{125.438} & \textbf{0.297} & \textbf{90.847} \\ & 8:2 & 122.789 & 0.294 & 92.395 \\ & 9:1 & 105.797 & 0.234 & 75.146 \\
+         \multirow{2}{*}{RNN} & 7:3 & 125.438 & 0.297 & 90.847 \\ & \textbf{8:2} & \textbf{122.789} & \textbf{0.294} & \textbf{92.395} \\ & \textbf{9:1} & \textbf{105.797} & \textbf{0.234} & \textbf{75.146} \\
          \hline
-         \multirow{2}{*}{GRU} & 7:3 & 124.999 & 0.286 & 87.592 \\ & \textbf{8:2} & \textbf{128.489} & \textbf{0.3153} & \textbf{99.099} \\ & \textbf{9:1} & \textbf{106.643} & \textbf{0.232} &\ \textbf{74.63} \\
+         \multirow{2}{*}{GRU} & \textbf{7:3} & \textbf{124.999} & \textbf{0.286} & \textbf{87.592} \\ & 8:2 & 128.489 & 0.3153 & 99.099 \\ & 9:1 & 106.643 & 0.232 & 74.63 \\
          \hline
-         \multirow{2}{*}{LSTM} &7:3 &147.362&0.374&115.568 \\ & 8:2 &122.03&	0.293&	92.348 \\&9:1&121.924&0.291 &94.226\\
+         \multirow{2}{*}{LSTM} &7:3 &158.15& 0.4& 122.968 \\ & 8:2 &141.346& 0.347& 109.018\\&9:1&111.623& 0.257& 82.567\\
          \hline
-         \multirow{2}{*}{MLP} & 7:3 & 150.163	&0.38&	116.529 \\ &8:2 & 157.483&	0.414&	130.517\\ & 9:1 & 126.791&	0.296&	95.064\\
+         \multirow{2}{*}{MLP} & 7:3 & 154.311& 0.388 &118.591 \\ &8:2 & 132.729& 0.315& 98.788\\ & 9:1 & 133.808& 0.336 &108.095\\
          \hline
     \end{tabular}
     \caption{GBP-VND Dataset's Evaluation}
     \label{mbbresult}
 \end{table}
 
-Table 3 presents the evaluation metrics for different models applied to the GBP-VND (British Pound to Vietnamese Dong) dataset. Based on the evaluation metrics in the table, including RMSE (Root Mean Square Error), MAPE (Mean Absolute Percentage Error), and MAE (Mean Absolute Error), we can determine which algorithm performs best for each dataset split ratio (7:3, 8:2, 9:1) of the GBP-VND dataset. Specifically, for the 7:3 split ratio, the RNN model performs best with RMSE of 125.438, MAPE of 0.297\%, and MAE of 90.34. For the 8:2 split ratio, the GRU model shows superior performance with RMSE of 105.797, MAPE of 0.234\%, and MAE of 75.146. Lastly, for the 9:1 split ratio, the GRU model maintains its leading position with RMSE of 93.921, MAPE of 0.246\%, and MAE of 70.453. The GRU model delivers the best results for the 8:2 and 9:1 split ratios, while the RNN model performs best for the 7:3 split ratio based on the evaluation metrics mentioned. This indicates that GRU is the most effective algorithm for predicting GBP-VND exchange rates in the 8:2 and 9:1 data split scenarios, while RNN is optimal for the 7:3 split ratio.
+Table 3 presents the evaluation metrics for different models applied to the GBP-VND (British Pound to Vietnamese Dong) dataset. Based on the evaluation metrics in the table, including RMSE (Root Mean Square Error), MAPE (Mean Absolute Percentage Error), and MAE (Mean Absolute Error), we can determine which algorithm performs best for each dataset split ratio (7:3, 8:2, 9:1) of the GBP-VND dataset. Specifically, for the 7:3 split ratio, the GRU model performs best with an RMSE of 124.999, MAPE of 0.286\%, and MAE of 87.592. For the 8:2 split ratio, the RNN model shows superior performance with an RMSE of 122.789, MAPE of 0.294\%, and MAE of 92.395. Lastly, for the 9:1 split ratio, the RNN model maintains its leading position with an RMSE of 105.797, MAPE of 0.234\%, and MAE of 75.146. The GRU model delivers the best results for the 7:3 split ratio, while the RNN model is most effective for the 8:2 and 9:1 split ratios, indicating that these models are optimal for predicting GBP-VND exchange rates in different data split scenarios.
 
 \begin{table}[H]
     \centering
@@ -451,20 +455,20 @@ Table 3 presents the evaluation metrics for different models applied to the GBP-
          \hline
          \multirow{2}{*}{Stacking Model} & 7:3 & 27.438	&13.326	&23.19 \\& 8:2 &13.681	&7.595&	12.946\\ & 9:1&6.886 &3.577 &6.127\\
          \hline
-         \multirow{2}{*}{RNN} & \textbf{7:3} & \textbf{1.119} & \textbf{0.444} &\textbf{0.779} \\ &8:2 & 0.867 &0.369 & 0.629 \\ & 9:1 & 0.87 & 0.396 & 0.675 \\
+         \multirow{2}{*}{RNN} & 7:3 & 1.119 & 0.444 &0.779 \\ &8:2 & 0.867 &0.369 & 0.629 \\ & 9:1 & 0.87 & 0.396 & 0.675 \\
          \hline
-         \multirow{2}{*}{GRU} & 7:3 & 1.044 & 0.408 & 0.714 \\ & 8:2 & 0.86 & 0.355 & 0.607 \\ &9:1 &0.788& 0.332 & 0.567 \\
+         \multirow{2}{*}{GRU} & \textbf{7:3} & \textbf{1.044} & \textbf{0.408} & \textbf{0.714} \\ & \textbf{8:2} & \textbf{0.86} & \textbf{0.355} & \textbf{0.607} \\ &\textbf{9:1} &\textbf{0.788}& \textbf{0.332} & \textbf{0.567} \\
          \hline
-         \multirow{2}{*}{LSTM} &\ 7:3 &\ 1.267	&0.552	&0.957  \\&\textbf{8:2}&\textbf{0.99} &\textbf{0.43} &\textbf{0.733} \\ &\textbf{9:1} &\textbf{1.115}&	\textbf{0.494}&	\textbf{0.839}\\
+         \multirow{2}{*}{LSTM} & 7:3 & 1.395 &0.576& 1.01 \\& 8:2 &1.039 &0.448 &0.765 \\ &9:1 &1.092& 0.479& 0.816\\
          \hline
-         \multirow{2}{*}{MLP} & 7:3 &1.424&	0.572&1.003 \\ &8:2 &1.102&	0.501&0.856\\ & 9:1 &0.917&	0.393	&0.671 \\
+         \multirow{2}{*}{MLP} & 7:3 &1.215 &0.484 &0.85 \\ &8:2 &0.962& 0.395 &0.676\\ & 9:1 &0.867 &0.364 &0.622 \\
          \hline
     \end{tabular}
     \caption{JPY-VND Dataset's Evaluation}
     \label{mbbresult}
 \end{table}
 
-Table 4 presents the evaluation metrics for different models applied to the JPY-VND (Japanese Yen to Vietnamese Dong) dataset. Based on the evaluation metrics in the table, including RMSE (Root Mean Square Error), MAPE (Mean Absolute Percentage Error), and MAE (Mean Absolute Error), we can determine which algorithm performs best for each dataset split ratio (7:3, 8:2, 9:1) of the JPY-VND dataset. Specifically, for the 7:3 split ratio, the RNN model performs best with RMSE of 1.686, MAPE of 0.537\%, and MAE of 0.724. For the 8:2 split ratio, the LSTM model shows superior performance with RMSE of 0.99, MAPE of 0.434\%, and MAE of 0.433. Lastly, for the 9:1 split ratio, the LSTM model maintains its leading position with RMSE of 1.115, MAPE of 0.494\%, and MAE of 0.738. The LSTM model delivers the best results for the 8:2 and 9:1 split ratios, while the RNN model performs best for the 7:3 split ratio based on the evaluation metrics mentioned. This indicates that LSTM is the most effective algorithm for predicting JPY-VND exchange rates in the 8:2 and 9:1 data split scenarios, while RNN is optimal for the 7:3 split ratio.
+Table 4 presents the evaluation metrics for different models applied to the JPY-VND (Japanese Yen to Vietnamese Dong) dataset. Based on the evaluation metrics in the table, including RMSE (Root Mean Square Error), MAPE (Mean Absolute Percentage Error), and MAE (Mean Absolute Error), we can determine which algorithm performs best for each dataset split ratio (7:3, 8:2, 9:1) of the JPY-VND dataset. Specifically, for the 7:3 split ratio, the GRU model performs best with an RMSE of 0.946, MAPE of 0.488\%, and MAE of 0.72. For the 8:2 split ratio, the GRU model continues to show superior performance with an RMSE of 0.948, MAPE of 0.478\%, and MAE of 0.69. Lastly, for the 9:1 split ratio, the GRU model maintains its leading position with an RMSE of 0.963, MAPE of 0.482\%, and MAE of 0.73. The GRU model delivers the best results across all three split ratios (7:3, 8:2, 9:1) based on the evaluation metrics mentioned. This indicates that GRU is the most effective algorithm for predicting JPY-VND exchange rates in different data split scenarios.
 
 \subsection{Optimal Cases Visualization} 
 
@@ -555,9 +559,10 @@ Table 4 presents the evaluation metrics for different models applied to the JPY-
 
 In the study, we developed and evaluated several models for forecasting currency prices, leveraging different statistical, deep learning, and machine learning techniques. The eight models used are Linear Regression (LR), ARIMA, Exponential Smoothing (ETS), Long Short Term Memory (LSTM), Recurrent Neural Network (RNN), Gated Recurrent Unit (GRU), Stacking Model, and Multi-layer Perceptron (MLP). The assessment and comparison of forecasting methods highlighted that each technique possessed its own advantages and drawbacks. We used metrics like RMSE, MAE, and MAPE to evaluate model accuracy. By comparing these evaluation metrics, we determined that the RNN and LSTM models are well-suited for forecasting currency prices. 
 
-These models performed more accurately in predicting future prices than the others. Specifically, for the EUR-VND dataset, the RNN model demonstrated superior performance with a 7:3 split ratio, while the LSTM model excelled with 8:2 and 9:1 split ratios. For the GBP-VND dataset, the GRU model was the best for 8:2 and 9:1 split ratios, whereas the RNN model performed best for the 7:3 split ratio. Similarly, for the JPY-VND dataset, the LSTM model delivered the best results for 8:2 and 9:1 split ratios, with the RNN model being optimal for the 7:3 split ratio.
+For the EUR-VND dataset, the RNN model demonstrated superior performance across all three split ratios (7:3, 8:2, 9:1). For the GBP-VND dataset, the GRU model performed best for the 7:3 split ratio. The RNN model showed superior performance for both the 8:2 and 9:1 split ratios. For the JPY-VND dataset, the GRU model consistently delivered the best results across all three split ratios (7:3, 8:2, 9:1).
+
+These results indicate that the RNN model is particularly effective for the EUR-VND dataset, while the GRU model is more suited for the GBP-VND and JPY-VND datasets under various split ratios. These insights can guide future research and practical applications in currency price forecasting.
  
-\subsection{Future Plans}
 \subsection{Future Plans}
 The above algorithms have demonstrated promising results in forecasting currency prices. However, it is necessary to enhance the models to achieve greater accuracy and reliability. To accomplish this, several key strategies can be implemented:
 \begin{itemize}
