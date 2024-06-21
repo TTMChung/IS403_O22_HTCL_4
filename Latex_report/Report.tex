@@ -17,7 +17,7 @@
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
 \begin{document}
-\title{FORECASTING THE CURRENCY PRICE}
+\title{FORECASTING EXCHANGE RATES OF FOREIGN CURRENCIES TO VIETNAMESE DONG USING MACHINE LEARNING AND STATISTICAL ALGORITHMS}
 
 \author{\uppercase{Trinh Thi My Chung}\authorrefmark{1},
 \uppercase{Tran Phuong Anh\authorrefmark{2}, and Che Duy Khang 3}\authorrefmark{3}}
@@ -32,12 +32,12 @@
 
 \begin{abstract}
 
-The rapid fluctuations in currency exchange rates pose significant challenges for investors and policymakers. This study aims to forecast currency prices using a range of statistical, machine learning, and deep learning algorithms. The models employed in this research include Linear Regression (LR), Autoregressive Integrated Moving Average (ARIMA), Exponential Smoothing State Space Model (ETS), Stacking Model, Multilayer Perceptron (MLP), Recurrent Neural Networks (RNN), Gated Recurrent Units (GRU), and Long Short-Term Memory (LSTM). Evaluation metrics such as Mean Absolute Percentage Error (MAPE), Root Mean Squared Error (RMSE), and Mean Absolute Error (MAE) are utilized to assess the performance of each forecasting model on various currency datasets, specifically EUR-VND, GBP-VND, and JPY-VND. The findings indicate that the RNN model performs best for the EUR-VND dataset across all three split ratios (7:3, 8:2, 9:1). For the GBP-VND dataset, the GRU model excels with a 7:3 split ratio, while the RNN model is optimal for the 8:2 and 9:1 split ratios. For the JPY-VND dataset, the GRU model consistently delivers the best results across all split ratios. These results highlight the effectiveness of deep learning models, particularly RNN and GRU, in forecasting currency prices and provide insights for future research and practical applications in this domain.
+The rapid fluctuations in currency exchange rates present significant challenges for investors and policymakers. This study aims to forecast exchange rates using various statistical, machine learning, and deep learning algorithms, including Linear Regression (LR), ARIMA, ETS, Stacking Model, MLP, RNN, GRU, and LSTM. We assess model performance using MAPE, RMSE, and MAE on EUR-VND, GBP-VND, and JPY-VND datasets. Findings indicate that the RNN model performs best for EUR-VND across all split ratios (7:3, 8:2, 9:1). For GBP-VND, the GRU model excels with a 7:3 split, while RNN is optimal for 8:2 and 9:1. For JPY-VND, the GRU model consistently delivers the best results across all ratios. These results highlight the effectiveness of deep learning models, especially RNN and GRU, in forecasting exchange rates and provide insights for future research and applications.
 \end{abstract}
 
 \begin{keywords}
 
-\textit{\textbf{Key words:}} Forecasting the currency price, Linear Regression, Autoregressive Integrated Moving Average (ARIMA), Exponential Smoothing (ETS), Stacking model, Multilayer Perceptron (MLP), Recurrent Neural Networks (RNN), Gated Recurrent Units (GRU), Long Short-Term Memory (LSTM)
+\textit{\textbf{Key words:}} Forecasting the exchage rates, Linear Regression, Autoregressive Integrated Moving Average (ARIMA), Exponential Smoothing (ETS), Stacking model, Multilayer Perceptron (MLP), Recurrent Neural Networks (RNN), Gated Recurrent Units (GRU), Long Short-Term Memory (LSTM)
 \end{keywords}
 
 \titlepgskip=-15pt
@@ -47,9 +47,9 @@ The rapid fluctuations in currency exchange rates pose significant challenges fo
 \section{Introduction}
 \label{sec:introduction}
 \justify
-Currency prices represent exchange rates between different currencies from different countries, and their fluctuations significantly impact various aspects of the global economy, including trade, investment, and banking. This report focuses on time-series exchange rate forecasts between the Vietnamese Dong (VND) and the Euro (EUR), British Pound (GBP), and Japanese Yen (JPY). Accurate forecasting of these exchange rates helps businesses manage risks and optimize profits, providing opportunities to enhance forecasting capabilities, create competitive advantages, and promote strategic development in the global business environment.
+The exchange rate is the ratio for converting between two currencies of different countries. It indicates the value of one currency relative to another. Their fluctuations significantly impact various aspects of the global economy, including trade, investment, and banking. This report focuses on time-series exchange rate forecasts between the Vietnamese Dong (VND) and the Euro (EUR), British Pound (GBP), and Japanese Yen (JPY). Accurate forecasting of these exchange rates helps businesses manage risks and optimize profits, providing opportunities to enhance forecasting capabilities, create competitive advantages, and promote strategic development in the global business environment.
 
-To analyze and forecast exchange rates between Vietnam and other countries, we employ a variety of models, including Linear Regression (LR), Autoregressive Integrated Moving Average (ARIMA), Exponential Smoothing State Space Model (ETS), Stacking Model (using XGBoost and Linear Regression), Recurrent Neural Networks (RNN), Long Short-Term Memory (LSTM), Gated Recurrent Units (GRU), and Multilayer Perceptron (MLP). Each model offers distinct strengths, facilitating a comprehensive examination of the complex dynamics influencing currency movements.
+To analyze and forecast exchange rates between Vietnam and other countries, we employ a variety of models, including Linear Regression (LR), Autoregressive Integrated Moving Average (ARIMA), Exponential Smoothing State Space Model (ETS), Stacking Model (using XGBoost and Linear Regression), Recurrent Neural Networks (RNN), Long Short-Term Memory (LSTM), Gated Recurrent Units (GRU), and Multilayer Perceptron (MLP). Each model offers distinct strengths, facilitating a comprehensive examination of the complex dynamics influencing exchange rate movements.
 
 In our study, we utilize evaluation metrics such as Mean Absolute Percentage Error (MAPE), Root Mean Squared Error (RMSE), and Mean Absolute Error (MAE) to assess the performance of each forecasting model. This comprehensive evaluation provides valuable insights into the effectiveness of various forecasting models.
 
@@ -360,11 +360,13 @@ Where:
     
 \section{Result}
 \subsection{Evaluation Methods}
-\textbf{Mean Percentage Absolute Error} (MAPE): is the average percentage error in a set of predicted values.\\
+In evaluating the performance of forecasting models, three primary metrics are utilized: Mean Absolute Percentage Error (MAPE), Root Mean Squared Error (RMSE), and Mean Absolute Error (MAE).
+
+\textbf{Mean Percentage Absolute Error} (MAPE): is the average percentage error in a set of predicted values.
 \[MAPE=\frac{100\%}{n}  \sum_{i=1}^{n} |\frac{y_i-\hat{y_i}}{y_i}|\]\\
-\textbf{Root Mean Squared Error} (RMSE): is the square root of the average value of squared error in a set of predicted values.\\
+\textbf{Root Mean Squared Error} (RMSE): is the square root of the average value of squared error in a set of predicted values.
 \[RMSE=\sqrt{\frac{1}{n} \sum_{i=1}^{n}(\hat{y_i}-y_i )^2}\]\\
-\textbf{Mean Absolute Error} (MAE): is a measure of the average difference between predicted values and actual values in a dataset.\\
+\textbf{Mean Absolute Error} (MAE): is a measure of the average difference between predicted values and actual values in a dataset.
 \[MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y_i}| \]
 Where: \\
 	\indent\textbullet\ \(n\) is the number of observations in the dataset.\\
@@ -404,8 +406,6 @@ Where: \\
     \label{vcbresult}
 \end{table}
 
-Table 2 presents the evaluation metrics for different models applied to the EUR-VND (Euro to Vietnamese Dong) dataset. Based on the evaluation metrics in the table, including RMSE (Root Mean Square Error), MAPE (Mean Absolute Percentage Error), and MAE (Mean Absolute Error), we can determine which algorithm performs best for each dataset split ratio (7:3, 8:2, 9:1) of the EUR-VND dataset. Specifically, for the 7:3 split ratio, the RNN model performs best. For the 8:2 split ratio, the RNN continues to show superior performance. Lastly, for the 9:1 split ratio, the RNN model maintains its leading position. The RNN model delivers the best results across all three split ratios (7:3, 8:2, 9:1) based on the evaluation metrics mentioned. This indicates that RNN is the most effective algorithm for predicting EUR-VND exchange rates in different data split scenarios.
-
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
@@ -435,8 +435,6 @@ Table 2 presents the evaluation metrics for different models applied to the EUR-
     \label{mbbresult}
 \end{table}
 
-Table 3 presents the evaluation metrics for different models applied to the GBP-VND (British Pound to Vietnamese Dong) dataset. Based on the evaluation metrics in the table, including RMSE (Root Mean Square Error), MAPE (Mean Absolute Percentage Error), and MAE (Mean Absolute Error), we can determine which algorithm performs best for each dataset split ratio (7:3, 8:2, 9:1) of the GBP-VND dataset. Specifically, for the 7:3 split ratio, the GRU model performs best. For the 8:2 split ratio, the RNN model shows superior performance. Lastly, for the 9:1 split ratio, the RNN model maintains its leading position. The GRU model delivers the best results for the 7:3 split ratio, while the RNN model is most effective for the 8:2 and 9:1 split ratios, indicating that these models are optimal for predicting GBP-VND exchange rates in different data split scenarios.
-
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|c|}
@@ -464,8 +462,13 @@ Table 3 presents the evaluation metrics for different models applied to the GBP-
     \label{mbbresult}
 \end{table}
 
-Table 4 presents the evaluation metrics for different models applied to the JPY-VND (Japanese Yen to Vietnamese Dong) dataset. Based on the evaluation metrics in the table, including RMSE (Root Mean Square Error), MAPE (Mean Absolute Percentage Error), and MAE (Mean Absolute Error), we can determine which algorithm performs best for each dataset split ratio (7:3, 8:2, 9:1) of the JPY-VND dataset. Specifically, for the 7:3 split ratio, the GRU model performs best. For the 8:2 split ratio, the GRU model continues to show superior performance. Lastly, for the 9:1 split ratio, the GRU model maintains its leading position. The GRU model delivers the best results across all three split ratios (7:3, 8:2, 9:1) based on the evaluation metrics mentioned. This indicates that GRU is the most effective algorithm for predicting JPY-VND exchange rates in different data split scenarios.\\
-\\
+In Tables 2, 3, and 4, we present comprehensive evaluations of various models applied to different currency pairs: EUR-VND (Euro to Vietnamese Dong), GBP-VND (British Pound to Vietnamese Dong), and JPY-VND (Japanese Yen to Vietnamese Dong) datasets, respectively. Each table showcases key evaluation metrics including RMSE (Root Mean Square Error), MAPE (Mean Absolute Percentage Error), and MAE (Mean Absolute Error). These metrics are pivotal in assessing the performance of predictive algorithms under different dataset split ratios (7:3, 8:2, 9:1).
+
+Starting with Table 2, focusing on the EUR-VND dataset, the RNN model consistently demonstrates superior performance across all split ratios. It consistently achieves the lowest RMSE, MAPE, and MAE values compared to other models, indicating its efficacy in forecasting EUR-VND exchange rates across varying data split scenarios.
+
+Moving to Table 3, which evaluates models for the GBP-VND dataset, we observe that the GRU model performs best for the 7:3 split ratio, while the RNN model excels for the 8:2 and 9:1 split ratios. This underscores the effectiveness of these models in predicting GBP-VND exchange rates under different data partitioning conditions.
+
+Finally, in Table 4 focusing on the JPY-VND dataset, the GRU model consistently outperforms others across all split ratios, demonstrating its robustness in forecasting JPY-VND exchange rates. It achieves the lowest RMSE, MAPE, and MAE values, underscoring its suitability for diverse data split scenarios.
 
 \subsection{Optimal Cases Visualization} 
 
